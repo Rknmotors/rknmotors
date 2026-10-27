@@ -1,0 +1,891 @@
+{
+ "versie": 1,
+ "bijgewerkt": "2026-10-15T18:37:18.165Z",
+ "wagens": [
+  {
+   "bak": "Manueel",
+   "brandstof": "Mild hybrid",
+   "fotos": [
+    {
+     "alt": "Schuin vooraanzicht rechts",
+     "src": "fotos/fiat-500c/01.jpg",
+     "thumb": "fotos/fiat-500c/t01.jpg"
+    },
+    {
+     "alt": "Vooraanzicht",
+     "src": "fotos/fiat-500c/02.jpg",
+     "thumb": "fotos/fiat-500c/t02.jpg"
+    },
+    {
+     "alt": "Schuin vooraanzicht links",
+     "src": "fotos/fiat-500c/03.jpg",
+     "thumb": "fotos/fiat-500c/t03.jpg"
+    },
+    {
+     "alt": "Schuin achteraanzicht rechts, dak open",
+     "src": "fotos/fiat-500c/04.jpg",
+     "thumb": "fotos/fiat-500c/t04.jpg"
+    },
+    {
+     "alt": "Achteraanzicht, dak open",
+     "src": "fotos/fiat-500c/05.jpg",
+     "thumb": "fotos/fiat-500c/t05.jpg"
+    },
+    {
+     "alt": "Schuin achteraanzicht links, dak open",
+     "src": "fotos/fiat-500c/06.jpg",
+     "thumb": "fotos/fiat-500c/t06.jpg"
+    },
+    {
+     "alt": "Hybrid-logo en achterlicht",
+     "src": "fotos/fiat-500c/07.jpg",
+     "thumb": "fotos/fiat-500c/t07.jpg"
+    },
+    {
+     "alt": "Lichtmetalen velg",
+     "src": "fotos/fiat-500c/08.jpg",
+     "thumb": "fotos/fiat-500c/t08.jpg"
+    },
+    {
+     "alt": "Interieur met het dak open",
+     "src": "fotos/fiat-500c/09.jpg",
+     "thumb": "fotos/fiat-500c/t09.jpg"
+    },
+    {
+     "alt": "Dashboard en scherm",
+     "src": "fotos/fiat-500c/11.jpg",
+     "thumb": "fotos/fiat-500c/t11.jpg"
+    },
+    {
+     "alt": "Digitale teller",
+     "src": "fotos/fiat-500c/13.jpg",
+     "thumb": "fotos/fiat-500c/t13.jpg"
+    },
+    {
+     "alt": "Kilometerstand",
+     "src": "fotos/fiat-500c/14.jpg",
+     "thumb": "fotos/fiat-500c/t14.jpg"
+    },
+    {
+     "alt": "Versnellingspook, 6 versnellingen",
+     "src": "fotos/fiat-500c/15.jpg",
+     "thumb": "fotos/fiat-500c/t15.jpg"
+    },
+    {
+     "alt": "Klimaatregeling",
+     "src": "fotos/fiat-500c/16.jpg",
+     "thumb": "fotos/fiat-500c/t16.jpg"
+    },
+    {
+     "alt": "Klimaatregeling van dichtbij",
+     "src": "fotos/fiat-500c/17.jpg",
+     "thumb": "fotos/fiat-500c/t17.jpg"
+    },
+    {
+     "alt": "Multimediascherm met DAB-radio",
+     "src": "fotos/fiat-500c/12.jpg",
+     "thumb": "fotos/fiat-500c/t12.jpg"
+    },
+    {
+     "alt": "Knoppen links op het stuur",
+     "src": "fotos/fiat-500c/19.jpg",
+     "thumb": "fotos/fiat-500c/t19.jpg"
+    },
+    {
+     "alt": "Knoppen rechts op het stuur",
+     "src": "fotos/fiat-500c/20.jpg",
+     "thumb": "fotos/fiat-500c/t20.jpg"
+    },
+    {
+     "alt": "Bedieningshendels met cruise control",
+     "src": "fotos/fiat-500c/21.jpg",
+     "thumb": "fotos/fiat-500c/t21.jpg"
+    },
+    {
+     "alt": "Middenconsole met USB en 12V",
+     "src": "fotos/fiat-500c/18.jpg",
+     "thumb": "fotos/fiat-500c/t18.jpg"
+    },
+    {
+     "alt": "Interieur vanaf de passagierszijde",
+     "src": "fotos/fiat-500c/10.jpg",
+     "thumb": "fotos/fiat-500c/t10.jpg"
+    },
+    {
+     "alt": "Voorzetels",
+     "src": "fotos/fiat-500c/22.jpg",
+     "thumb": "fotos/fiat-500c/t22.jpg"
+    },
+    {
+     "alt": "500-logo op de zetel",
+     "src": "fotos/fiat-500c/23.jpg",
+     "thumb": "fotos/fiat-500c/t23.jpg"
+    },
+    {
+     "alt": "Achterbank",
+     "src": "fotos/fiat-500c/24.jpg",
+     "thumb": "fotos/fiat-500c/t24.jpg"
+    },
+    {
+     "alt": "500C-logo in de zon",
+     "src": "fotos/fiat-500c/25.jpg",
+     "thumb": "fotos/fiat-500c/t25.jpg"
+    }
+   ],
+   "id": "c1",
+   "info": [
+    [
+     "Eerste inschrijving",
+     "08/2020"
+    ],
+    [
+     "Kilometerstand",
+     "88.000 km"
+    ],
+    [
+     "Motor",
+     "1.0 mild hybrid, 3 cilinders, 998 cc"
+    ],
+    [
+     "Vermogen",
+     "51 kW (69 pk)"
+    ],
+    [
+     "Versnellingsbak",
+     "Manueel, 6 versnellingen"
+    ],
+    [
+     "Carrosserie",
+     "Cabrio, 2 deuren, 4 zitplaatsen"
+    ],
+    [
+     "Kleur",
+     "Parelwit, interieur beige leder"
+    ],
+    [
+     "Verbruik",
+     "3,9 l/100 km (gemengd)"
+    ],
+    [
+     "CO₂",
+     "88 g/km · Euro 6d"
+    ],
+    [
+     "Vorige eigenaars",
+     "1"
+    ],
+    [
+     "Onderhoud",
+     "Bij een erkende dealer"
+    ],
+    [
+     "Niet-roker",
+     "Ja"
+    ],
+    [
+     "Garantie",
+     "12 maanden"
+    ],
+    [
+     "Historiek",
+     "Car-Pass beschikbaar"
+    ]
+   ],
+   "jaar": 2020,
+   "km": 88000,
+   "len": 0.84,
+   "merk": "Fiat",
+   "model": "500C 1.0 Hybrid Star",
+   "pluspunten": [
+    "12 maanden garantie",
+    "1 vorige eigenaar",
+    "Onderhouden bij erkende dealer",
+    "Car-Pass beschikbaar",
+    "Niet-roker",
+    "Ongevalvrij"
+   ],
+   "prijs": 11200,
+   "status": "te koop",
+   "type": "Cabrio",
+   "uitrusting": [
+    "Elektrisch opvouwbaar dak",
+    "Apple CarPlay en Android Auto",
+    "Navigatie",
+    "Touchscreen met DAB-radio",
+    "Bluetooth en handsfree",
+    "Spraakbediening",
+    "Cruise control",
+    "Snelheidsbegrenzer",
+    "Parkeersensoren en camera",
+    "Airco",
+    "Lederen zetels en stuur",
+    "Multifunctioneel stuur",
+    "Elektrische en verwarmde spiegels",
+    "Elektrische ramen",
+    "Lane assist",
+    "Bandenspanningscontrole",
+    "Ledverlichting en mistlichten",
+    "16 inch lichtmetalen velgen",
+    "Start-stopsysteem",
+    "Isofix",
+    "Reservewiel"
+   ]
+  },
+  {
+   "bak": "Automaat",
+   "brandstof": "Benzine",
+   "fotos": [
+    {
+     "alt": "Schuin vooraanzicht rechts",
+     "src": "fotos/hyundai-tucson/01.jpg",
+     "thumb": "fotos/hyundai-tucson/t01.jpg"
+    },
+    {
+     "alt": "Vooraanzicht",
+     "src": "fotos/hyundai-tucson/02.jpg",
+     "thumb": "fotos/hyundai-tucson/t02.jpg"
+    },
+    {
+     "alt": "Schuin vooraanzicht links",
+     "src": "fotos/hyundai-tucson/03.jpg",
+     "thumb": "fotos/hyundai-tucson/t03.jpg"
+    },
+    {
+     "alt": "Zijaanzicht vooraan",
+     "src": "fotos/hyundai-tucson/04.jpg",
+     "thumb": "fotos/hyundai-tucson/t04.jpg"
+    },
+    {
+     "alt": "Zijaanzicht achteraan",
+     "src": "fotos/hyundai-tucson/05.jpg",
+     "thumb": "fotos/hyundai-tucson/t05.jpg"
+    },
+    {
+     "alt": "Schuin achteraanzicht links",
+     "src": "fotos/hyundai-tucson/06.jpg",
+     "thumb": "fotos/hyundai-tucson/t06.jpg"
+    },
+    {
+     "alt": "Achteraanzicht",
+     "src": "fotos/hyundai-tucson/07.jpg",
+     "thumb": "fotos/hyundai-tucson/t07.jpg"
+    },
+    {
+     "alt": "Schuin achteraanzicht rechts",
+     "src": "fotos/hyundai-tucson/08.jpg",
+     "thumb": "fotos/hyundai-tucson/t08.jpg"
+    },
+    {
+     "alt": "N Line-logo",
+     "src": "fotos/hyundai-tucson/09.jpg",
+     "thumb": "fotos/hyundai-tucson/t09.jpg"
+    },
+    {
+     "alt": "19 inch velg met Michelin Pilot Sport",
+     "src": "fotos/hyundai-tucson/10.jpg",
+     "thumb": "fotos/hyundai-tucson/t10.jpg"
+    },
+    {
+     "alt": "Interieur vanaf de bestuurderszijde",
+     "src": "fotos/hyundai-tucson/11.jpg",
+     "thumb": "fotos/hyundai-tucson/t11.jpg"
+    },
+    {
+     "alt": "Stuur en dashboard",
+     "src": "fotos/hyundai-tucson/12.jpg",
+     "thumb": "fotos/hyundai-tucson/t12.jpg"
+    },
+    {
+     "alt": "Zicht op het stuur van achteren",
+     "src": "fotos/hyundai-tucson/15.jpg",
+     "thumb": "fotos/hyundai-tucson/t15.jpg"
+    },
+    {
+     "alt": "Voorzetels met open deur",
+     "src": "fotos/hyundai-tucson/13.jpg",
+     "thumb": "fotos/hyundai-tucson/t13.jpg"
+    },
+    {
+     "alt": "Interieur vanaf de passagierszijde",
+     "src": "fotos/hyundai-tucson/14.jpg",
+     "thumb": "fotos/hyundai-tucson/t14.jpg"
+    },
+    {
+     "alt": "Middenconsole",
+     "src": "fotos/hyundai-tucson/16.jpg",
+     "thumb": "fotos/hyundai-tucson/t16.jpg"
+    },
+    {
+     "alt": "Pook met N-logo",
+     "src": "fotos/hyundai-tucson/17.jpg",
+     "thumb": "fotos/hyundai-tucson/t17.jpg"
+    },
+    {
+     "alt": "Automatische klimaatregeling",
+     "src": "fotos/hyundai-tucson/21.jpg",
+     "thumb": "fotos/hyundai-tucson/t21.jpg"
+    },
+    {
+     "alt": "Tellers in sportmodus, 72.668 km",
+     "src": "fotos/hyundai-tucson/19.jpg",
+     "thumb": "fotos/hyundai-tucson/t19.jpg"
+    },
+    {
+     "alt": "Toerenteller",
+     "src": "fotos/hyundai-tucson/18.jpg",
+     "thumb": "fotos/hyundai-tucson/t18.jpg"
+    },
+    {
+     "alt": "Snelheidsmeter",
+     "src": "fotos/hyundai-tucson/20.jpg",
+     "thumb": "fotos/hyundai-tucson/t20.jpg"
+    },
+    {
+     "alt": "Stuur met bedieningsknoppen",
+     "src": "fotos/hyundai-tucson/22.jpg",
+     "thumb": "fotos/hyundai-tucson/t22.jpg"
+    },
+    {
+     "alt": "Knoppen rechts op het stuur",
+     "src": "fotos/hyundai-tucson/23.jpg",
+     "thumb": "fotos/hyundai-tucson/t23.jpg"
+    },
+    {
+     "alt": "Lichtschakelaar",
+     "src": "fotos/hyundai-tucson/24.jpg",
+     "thumb": "fotos/hyundai-tucson/t24.jpg"
+    },
+    {
+     "alt": "Ruitenwisserhendel",
+     "src": "fotos/hyundai-tucson/25.jpg",
+     "thumb": "fotos/hyundai-tucson/t25.jpg"
+    },
+    {
+     "alt": "Knoppen voor rijhulpsystemen",
+     "src": "fotos/hyundai-tucson/26.jpg",
+     "thumb": "fotos/hyundai-tucson/t26.jpg"
+    },
+    {
+     "alt": "Bediening in de deur",
+     "src": "fotos/hyundai-tucson/27.jpg",
+     "thumb": "fotos/hyundai-tucson/t27.jpg"
+    },
+    {
+     "alt": "N-logo in de zetel",
+     "src": "fotos/hyundai-tucson/28.jpg",
+     "thumb": "fotos/hyundai-tucson/t28.jpg"
+    },
+    {
+     "alt": "Gordel met N-logo",
+     "src": "fotos/hyundai-tucson/29.jpg",
+     "thumb": "fotos/hyundai-tucson/t29.jpg"
+    }
+   ],
+   "id": "c6",
+   "info": [
+    [
+     "Bouwjaar",
+     "2020"
+    ],
+    [
+     "Kilometerstand",
+     "72.668 km"
+    ],
+    [
+     "Motor",
+     "1.6 T-GDi benzine"
+    ],
+    [
+     "Vermogen",
+     "177 pk · 265 Nm"
+    ],
+    [
+     "Versnellingsbak",
+     "Automaat, 7 versnellingen"
+    ],
+    [
+     "Uitvoering",
+     "N-Line"
+    ],
+    [
+     "Banden",
+     "Michelin Pilot Sport 245/45 ZR 19"
+    ],
+    [
+     "Staat",
+     "Goede algemene staat met normale gebruikssporen; kleine beschadiging aan de bestuurderszetel"
+    ],
+    [
+     "Vorige eigenaars",
+     "1"
+    ],
+    [
+     "Onderhoud",
+     "Bij een erkende dealer"
+    ],
+    [
+     "Niet-roker",
+     "Ja"
+    ],
+    [
+     "Garantie",
+     "12 maanden"
+    ],
+    [
+     "Historiek",
+     "Car-Pass beschikbaar"
+    ]
+   ],
+   "jaar": 2020,
+   "km": 72668,
+   "len": 0.9,
+   "merk": "Hyundai",
+   "model": "Tucson N-Line 1.6 T-GDi",
+   "pluspunten": [
+    "12 maanden garantie",
+    "1 vorige eigenaar",
+    "Onderhouden bij erkende dealer",
+    "Car-Pass beschikbaar",
+    "Niet-roker"
+   ],
+   "prijs": 21999,
+   "status": "te koop",
+   "type": "SUV",
+   "uitrusting": [
+    "Sportpakket",
+    "Sportzetels",
+    "Sportmodus",
+    "Panoramisch dak",
+    "360° parkeercamera",
+    "Parkeersensoren voor en achter",
+    "Adaptieve cruise control",
+    "Botswaarschuwing",
+    "Verkeersbordherkenning",
+    "Automatische klimaatregeling",
+    "Verwarmde voorzetels",
+    "Voorruitverwarming",
+    "Achterruitverwarming",
+    "Apple CarPlay",
+    "Navigatie",
+    "Aanraakscherm",
+    "DAB-radio en USB",
+    "Bluetooth",
+    "Spraakbediening",
+    "Inductieladen voor smartphone",
+    "Lederen bekleding",
+    "Lederen stuur",
+    "Multifunctioneel stuur",
+    "Lichtmetalen velgen",
+    "Led-dagrijverlichting",
+    "Mistlampen voor en achter",
+    "Lichtsensor",
+    "Regensensor",
+    "Elektrisch verstelbare buitenspiegels",
+    "Elektrische ramen",
+    "Elektronische handrem",
+    "Start-stopsysteem",
+    "Bandenspanningscontrole",
+    "Centrale vergrendeling met afstandsbediening",
+    "Isofix",
+    "Neerklapbare achterbank",
+    "Bagageruimte-afscheiding",
+    "Airbags voor, achter en opzij",
+    "Stuurbekrachtiging",
+    "Armsteun",
+    "Drankhouders voor en achter",
+    "Getinte achterruiten",
+    "Gordijnen op maat voor de achterramen",
+    "Grill en logo in pianozwart"
+   ]
+  },
+  {
+   "bak": "Manueel",
+   "brandstof": "Benzine",
+   "fotos": [
+    {
+     "alt": "Schuin vooraanzicht rechts",
+     "src": "fotos/hyundai-i10/01.jpg",
+     "thumb": "fotos/hyundai-i10/t01.jpg"
+    },
+    {
+     "alt": "Vooraanzicht",
+     "src": "fotos/hyundai-i10/02.jpg",
+     "thumb": "fotos/hyundai-i10/t02.jpg"
+    },
+    {
+     "alt": "Schuin vooraanzicht links",
+     "src": "fotos/hyundai-i10/03.jpg",
+     "thumb": "fotos/hyundai-i10/t03.jpg"
+    },
+    {
+     "alt": "Schuin achteraanzicht rechts",
+     "src": "fotos/hyundai-i10/04.jpg",
+     "thumb": "fotos/hyundai-i10/t04.jpg"
+    },
+    {
+     "alt": "Achteraanzicht",
+     "src": "fotos/hyundai-i10/05.jpg",
+     "thumb": "fotos/hyundai-i10/t05.jpg"
+    },
+    {
+     "alt": "Schuin achteraanzicht links",
+     "src": "fotos/hyundai-i10/06.jpg",
+     "thumb": "fotos/hyundai-i10/t06.jpg"
+    },
+    {
+     "alt": "Velg en band",
+     "src": "fotos/hyundai-i10/07.jpg",
+     "thumb": "fotos/hyundai-i10/t07.jpg"
+    },
+    {
+     "alt": "Dashboard",
+     "src": "fotos/hyundai-i10/08.jpg",
+     "thumb": "fotos/hyundai-i10/t08.jpg"
+    },
+    {
+     "alt": "Stuur",
+     "src": "fotos/hyundai-i10/13.jpg",
+     "thumb": "fotos/hyundai-i10/t13.jpg"
+    },
+    {
+     "alt": "Knoppen op het stuur",
+     "src": "fotos/hyundai-i10/18.jpg",
+     "thumb": "fotos/hyundai-i10/t18.jpg"
+    },
+    {
+     "alt": "Schakelaars links van het stuur",
+     "src": "fotos/hyundai-i10/19.jpg",
+     "thumb": "fotos/hyundai-i10/t19.jpg"
+    },
+    {
+     "alt": "Koplamphoogteregeling",
+     "src": "fotos/hyundai-i10/20.jpg",
+     "thumb": "fotos/hyundai-i10/t20.jpg"
+    },
+    {
+     "alt": "Instrumentenpaneel",
+     "src": "fotos/hyundai-i10/14.jpg",
+     "thumb": "fotos/hyundai-i10/t14.jpg"
+    },
+    {
+     "alt": "Kilometerstand",
+     "src": "fotos/hyundai-i10/15.jpg",
+     "thumb": "fotos/hyundai-i10/t15.jpg"
+    },
+    {
+     "alt": "Dashboard vanaf de bestuurderszijde",
+     "src": "fotos/hyundai-i10/09.jpg",
+     "thumb": "fotos/hyundai-i10/t09.jpg"
+    },
+    {
+     "alt": "Zicht vanaf de achterbank",
+     "src": "fotos/hyundai-i10/12.jpg",
+     "thumb": "fotos/hyundai-i10/t12.jpg"
+    },
+    {
+     "alt": "Klimaatregeling",
+     "src": "fotos/hyundai-i10/17.jpg",
+     "thumb": "fotos/hyundai-i10/t17.jpg"
+    },
+    {
+     "alt": "Voorzetels",
+     "src": "fotos/hyundai-i10/10.jpg",
+     "thumb": "fotos/hyundai-i10/t10.jpg"
+    },
+    {
+     "alt": "Achterbank",
+     "src": "fotos/hyundai-i10/11.jpg",
+     "thumb": "fotos/hyundai-i10/t11.jpg"
+    },
+    {
+     "alt": "Versnellingspook, 5 versnellingen",
+     "src": "fotos/hyundai-i10/16.jpg",
+     "thumb": "fotos/hyundai-i10/t16.jpg"
+    },
+    {
+     "alt": "Ontgrendeling tankklep",
+     "src": "fotos/hyundai-i10/21.jpg",
+     "thumb": "fotos/hyundai-i10/t21.jpg"
+    }
+   ],
+   "id": "c2",
+   "info": [
+    [
+     "Eerste inschrijving",
+     "10/2015"
+    ],
+    [
+     "Kilometerstand",
+     "31.000 km"
+    ],
+    [
+     "Motor",
+     "1.0 benzine, 3 cilinders, 998 cc"
+    ],
+    [
+     "Vermogen",
+     "49 kW (67 pk)"
+    ],
+    [
+     "Versnellingsbak",
+     "Manueel, 5 versnellingen"
+    ],
+    [
+     "Carrosserie",
+     "Stadswagen, 5 deuren, 5 zitplaatsen"
+    ],
+    [
+     "Kleur",
+     "Bruin, interieur zwarte stof"
+    ],
+    [
+     "Gewicht",
+     "950 kg"
+    ],
+    [
+     "Verbruik",
+     "4,7 l/100 km (gemiddeld)"
+    ],
+    [
+     "CO₂",
+     "108 g/km · Euro 6b"
+    ],
+    [
+     "Lage-emissiezones",
+     "Toegang tot o.a. Antwerpen, Gent en Brussel"
+    ],
+    [
+     "Vorige eigenaars",
+     "1"
+    ],
+    [
+     "Onderhoud",
+     "Bij een erkende dealer, onderhoudshistoriek aanwezig"
+    ],
+    [
+     "Niet-roker",
+     "Ja"
+    ],
+    [
+     "Garantie",
+     "12 maanden"
+    ],
+    [
+     "Historiek",
+     "Car-Pass beschikbaar"
+    ]
+   ],
+   "jaar": 2015,
+   "km": 31000,
+   "len": 0.78,
+   "merk": "Hyundai",
+   "model": "i10 1.0 Pop",
+   "pluspunten": [
+    "12 maanden garantie",
+    "1 vorige eigenaar",
+    "Onderhouden bij erkende dealer",
+    "Car-Pass beschikbaar",
+    "Niet-roker"
+   ],
+   "prijs": 5999,
+   "status": "te koop",
+   "type": "Stadswagen",
+   "uitrusting": [
+    "Airbags voor, opzij en hoofd",
+    "ABS",
+    "ESP",
+    "Bandenspanningscontrole",
+    "Centrale vergrendeling met afstandsbediening",
+    "Stuurbekrachtiging",
+    "Mistlampen",
+    "Isofix"
+   ]
+  },
+  {
+   "bak": "Manueel",
+   "brandstof": "Benzine",
+   "fotos": [],
+   "id": "c7",
+   "info": [
+    [
+     "Eerste inschrijving",
+     "09/2012"
+    ],
+    [
+     "Kilometerstand",
+     "75.000 km"
+    ],
+    [
+     "Motor",
+     "1.2 benzine, 1.242 cc"
+    ],
+    [
+     "Vermogen",
+     "51 kW (69 pk)"
+    ],
+    [
+     "Versnellingsbak",
+     "Manueel, 5 versnellingen"
+    ],
+    [
+     "Carrosserie",
+     "3 deuren, 4 zitplaatsen"
+    ],
+    [
+     "Kleur",
+     "Blauw metaal, interieur zwarte stof"
+    ],
+    [
+     "Verbruik",
+     "5,0 l/100 km"
+    ],
+    [
+     "CO₂",
+     "113 g/km · Euro 5"
+    ],
+    [
+     "Vorige eigenaars",
+     "1"
+    ],
+    [
+     "Historiek",
+     "Ongevalvrij, Car-Pass beschikbaar"
+    ]
+   ],
+   "jaar": 2012,
+   "km": 75000,
+   "len": 0.76,
+   "merk": "Ford",
+   "model": "Ka 1.2 Titanium",
+   "pluspunten": [
+    "1 vorige eigenaar",
+    "Ongevalvrij",
+    "Niet-roker",
+    "Airco"
+   ],
+   "prijs": null,
+   "status": "binnenkort",
+   "type": "Stadswagen",
+   "uitrusting": [
+    "Airco",
+    "Elektrische ramen",
+    "Start-stopsysteem",
+    "ABS",
+    "Airbags voor en opzij",
+    "Isofix",
+    "Mistlampen",
+    "Centrale vergrendeling met afstandsbediening",
+    "Radio met cd/mp3",
+    "Digitale radio",
+    "Reservewiel"
+   ]
+  },
+  {
+   "bak": "Automaat",
+   "brandstof": "Benzine",
+   "fotos": [],
+   "id": "c10",
+   "info": [],
+   "jaar": 2015,
+   "km": 121000,
+   "len": 0.92,
+   "merk": "BMW",
+   "model": "328i M-pakket",
+   "pluspunten": [],
+   "prijs": null,
+   "status": "verkocht",
+   "type": "Sedan",
+   "uitrusting": []
+  },
+  {
+   "bak": "Automaat",
+   "brandstof": "Benzine",
+   "fotos": [],
+   "id": "c9",
+   "info": [],
+   "jaar": 2023,
+   "km": 42000,
+   "len": 0.9,
+   "merk": "Mercedes-Benz",
+   "model": "C 300 AMG-pakket",
+   "pluspunten": [],
+   "prijs": null,
+   "status": "verkocht",
+   "type": "Sedan",
+   "uitrusting": []
+  },
+  {
+   "bak": "Automaat",
+   "brandstof": "Benzine",
+   "fotos": [],
+   "id": "c8",
+   "info": [
+    [
+     "Vermogen",
+     "81 kW (110 pk)"
+    ]
+   ],
+   "jaar": 2021,
+   "km": 96000,
+   "len": 0.88,
+   "merk": "Volkswagen",
+   "model": "T-Cross 1.0 TSI Life",
+   "pluspunten": [],
+   "prijs": null,
+   "status": "verkocht",
+   "type": "SUV",
+   "uitrusting": []
+  },
+  {
+   "bak": "Automaat",
+   "brandstof": "Benzine",
+   "fotos": [],
+   "id": "c4",
+   "info": [],
+   "jaar": 2024,
+   "km": 55000,
+   "len": 0.8,
+   "merk": "Hyundai",
+   "model": "i10 1.0i Twist",
+   "pluspunten": [],
+   "prijs": 12999,
+   "status": "verkocht",
+   "type": "Hatchback",
+   "uitrusting": []
+  },
+  {
+   "bak": "Manueel",
+   "brandstof": "Benzine",
+   "fotos": [],
+   "id": "c3",
+   "info": [],
+   "jaar": 2017,
+   "km": 60000,
+   "len": 0.76,
+   "merk": "Peugeot",
+   "model": "108",
+   "pluspunten": [],
+   "prijs": 6499,
+   "status": "verkocht",
+   "type": "Hatchback",
+   "uitrusting": []
+  },
+  {
+   "bak": "Manueel",
+   "brandstof": "Benzine",
+   "fotos": [],
+   "id": "c5",
+   "info": [],
+   "jaar": 2012,
+   "km": 72000,
+   "len": 0.86,
+   "merk": "Renault",
+   "model": "Clio",
+   "pluspunten": [],
+   "prijs": 3999,
+   "status": "verkocht",
+   "type": "Stadswagen",
+   "uitrusting": []
+  }
+ ]
+}
