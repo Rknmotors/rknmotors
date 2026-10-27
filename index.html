@@ -748,7 +748,7 @@ html,body{max-width:100%;overflow-x:hidden}
     <li><a href="#reviews">Reviews</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <div class="mnav-cta"><a class="btn btn-red" href="tel:0400000000">Bel ons</a><a class="btn btn-ghost" href="https://wa.me/32400000000" target="_blank" rel="noopener">WhatsApp</a></div>
+  <div class="mnav-cta"><a class="btn btn-red" href="tel:+32474990977">Bel ons</a><a class="btn btn-ghost" href="https://wa.me/32474990977" target="_blank" rel="noopener">WhatsApp</a></div>
   <p>Stationsstraat 167, 9250 Waasmunster<br>Elke dag 08:00–18:00, op afspraak</p>
 </nav>
 
@@ -867,11 +867,11 @@ html,body{max-width:100%;overflow-x:hidden}
     <h2 style="margin-top:20px" id="final-h">Klaar voor je volgende wagen?</h2>
     <p class="lede">Laat ons weten welke wagen je wilt zien, of vertel wat je zoekt. We plannen een moment dat jou past, ook in het weekend.</p>
     <div class="final-cta">
-      <a class="btn btn-white" href="https://wa.me/32400000000" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z"/><path d="M9 9.5c.3 2.3 2.2 4.2 4.5 4.5l1-1.3 2 .8-.4 1.8c-3.8.2-7.5-3.5-7.3-7.3l1.8-.4.8 2z"/></svg>WhatsApp ons</a>
+      <a class="btn btn-white" href="https://wa.me/32474990977" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z"/><path d="M9 9.5c.3 2.3 2.2 4.2 4.5 4.5l1-1.3 2 .8-.4 1.8c-3.8.2-7.5-3.5-7.3-7.3l1.8-.4.8 2z"/></svg>WhatsApp ons</a>
       <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Stationsstraat+167+9250+Waasmunster" target="_blank" rel="noopener">Routebeschrijving ↗</a>
     </div>
     <div class="contact-grid">
-      <div class="cbox"><span>Telefoon</span><b id="tel">0400000000</b><div class="row2"><button class="mini" data-copy="0400000000">Kopieer</button><a class="mini" href="tel:0400000000">Bel</a></div></div>
+      <div class="cbox"><span>Telefoon</span><b id="tel">+32 474 99 09 77</b><div class="row2"><button class="mini" data-copy="+32 474 99 09 77">Kopieer</button><a class="mini" href="tel:+32474990977">Bel</a></div></div>
       <div class="cbox"><span>E-mail</span><b>info@rknmotors.be</b><div class="row2"><button class="mini" data-copy="info@rknmotors.be">Kopieer</button></div></div>
       <div class="cbox"><span>Adres</span><b>Stationsstraat 167<br>9250 Waasmunster</b></div>
       <div class="cbox"><span>Openingsuren</span><b>Elke dag 08:00–18:00</b><span style="text-transform:none;letter-spacing:0;font-family:var(--body);font-size:14px">Enkel op afspraak</span></div>
@@ -987,7 +987,7 @@ function cardHTML(c){
   return `<article class="card${n?' has-photo':''}${c.verkocht?' sold':''}${c.binnenkort?' soon-card':''}">${pic}
   <div class="info"><h3>${naam}<small>${esc(c.type)}${c.jaar?' · '+esc(c.jaar):''}</small></h3>
   <ul class="specs">${c.jaar?`<li>${ic.cal}${esc(c.jaar)}</li>`:''}${c.km?`<li>${ic.km}${nf(+c.km)} km</li>`:''}${c.brandstof?`<li>${ic.fuel}${esc(c.brandstof)}</li>`:''}${c.bak?`<li>${ic.gear}${esc(c.bak)}</li>`:''}</ul>
-  ${c.pluspunten.length?`<ul class="plus">${c.pluspunten.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}${c.binnenkort&&!n&&(c.info.length||c.uitrusting.length)?`<details class="more"><summary>Alle gegevens en uitrusting</summary><dl>${c.info.map(([k,v])=>`<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('')}</dl><ul>${c.uitrusting.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></details>`:''}<div class="foot"><span class="plate"><span class="eu"><i></i>B</span><b>${priceText(c)}</b></span><a class="ask" href="https://wa.me/32400000000?text=${c.verkocht?encodeURIComponent(`Hallo RKN Motors, ik zoek een wagen zoals de ${c.merk} ${c.model}. Hebben jullie iets gelijkaardigs?`):t}" target="_blank" rel="noopener">${c.verkocht?'Iets gelijkaardigs?':c.binnenkort?'Hou me op de hoogte':'Vraag info'} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div></article>`}
+  ${c.pluspunten.length?`<ul class="plus">${c.pluspunten.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}${c.binnenkort&&!n&&(c.info.length||c.uitrusting.length)?`<details class="more"><summary>Alle gegevens en uitrusting</summary><dl>${c.info.map(([k,v])=>`<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('')}</dl><ul>${c.uitrusting.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></details>`:''}<div class="foot"><span class="plate"><span class="eu"><i></i>B</span><b>${priceText(c)}</b></span><a class="ask" href="https://wa.me/32474990977?text=${c.verkocht?encodeURIComponent(`Hallo RKN Motors, ik zoek een wagen zoals de ${c.merk} ${c.model}. Hebben jullie iets gelijkaardigs?`):t}" target="_blank" rel="noopener">${c.verkocht?'Iets gelijkaardigs?':c.binnenkort?'Hou me op de hoogte':'Vraag info'} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div></article>`}
 function renderCards(){const el=document.getElementById('cars');el.innerHTML=sortedStock().map(cardHTML).join('')||'<p class="stock-empty">Momenteel geen wagens online. Bel of WhatsApp ons gerust voor het actuele aanbod.</p>';rknHydrate(el)}
 renderCards();
 document.getElementById('cnt')&&(document.getElementById('cnt').textContent=STOCK.filter(c=>!c.verkocht&&!c.binnenkort).length);
@@ -1007,7 +1007,7 @@ document.getElementById('cnt')&&(document.getElementById('cnt').textContent=STOC
     [...th.children].forEach((b,j)=>b.onclick=()=>show(j));rknHydrate(th);
     const info=autoInfo(c),inf=document.getElementById('lbInfo'),det=document.getElementById('lbDet');lb.classList.toggle('has-info',!!info.length);lb.classList.remove('show-info');det.hidden=!info.length;det.setAttribute('aria-pressed','false');
     if(info.length){const t=encodeURIComponent(`Hallo RKN Motors, is de ${c.merk} ${c.model}${c.jaar?' ('+c.jaar+')':''} nog beschikbaar?`);
-      inf.innerHTML='<h4>Gegevens</h4><dl>'+info.map(([k,v])=>`<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('')+'</dl>'+(c.uitrusting.length?'<h4>Uitrusting</h4><ul>'+c.uitrusting.map(x=>`<li>${esc(x)}</li>`).join('')+'</ul>':'')+(c.verkocht?'':`<a class="btn btn-red" href="https://wa.me/32400000000?text=${t}" target="_blank" rel="noopener">Vraag info via WhatsApp</a>`)+`<small>Gegevens onder voorbehoud. Bezichtiging en proefrit op afspraak.</small>`}else inf.innerHTML='';
+      inf.innerHTML='<h4>Gegevens</h4><dl>'+info.map(([k,v])=>`<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('')+'</dl>'+(c.uitrusting.length?'<h4>Uitrusting</h4><ul>'+c.uitrusting.map(x=>`<li>${esc(x)}</li>`).join('')+'</ul>':'')+(c.verkocht?'':`<a class="btn btn-red" href="https://wa.me/32474990977?text=${t}" target="_blank" rel="noopener">Vraag info via WhatsApp</a>`)+`<small>Gegevens onder voorbehoud. Bezichtiging en proefrit op afspraak.</small>`}else inf.innerHTML='';
     lb.hidden=false;document.documentElement.style.overflow='hidden';window.__lenis&&window.__lenis.stop();show(k);document.getElementById('lbClose').focus()};
   const close=()=>{lb.hidden=true;document.documentElement.style.overflow='';window.__lenis&&window.__lenis.start();last&&last.focus()};
   document.addEventListener('click',e=>{const b=e.target.closest('[data-gal]');if(b)open(STOCK.find(c=>c.id===b.dataset.gal))});
