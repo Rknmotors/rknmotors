@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>RKN Motors</title>
+<style>
+  :root{color-scheme:dark}
+  body{margin:0;min-height:100svh;display:grid;place-items:center;padding:24px;
+       background:#121314;color:#F7F7F4;
+       font:17px/1.55 "Instrument Sans","Helvetica Neue",Arial,sans-serif;text-align:center}
+  .box{max-width:30rem;display:grid;gap:18px;justify-items:center}
+  h1{margin:0;font-size:clamp(28px,6vw,44px);line-height:1.05;letter-spacing:-.025em;font-weight:800}
+  p{margin:0;color:#9EA1A7}
+  a.btn{display:inline-block;margin-top:6px;padding:14px 22px;border-radius:999px;
+        background:#F5B800;color:#121314;font-weight:600;text-decoration:none}
+</style>
+<script>
+/* De oude site had aparte pagina's. Die adressen staan nog in Google en in oude links,
+   dus sturen we ze naar het juiste onderdeel van de eenpagina-site. */
+(function () {
+  var p = location.pathname.toLowerCase().replace(/\/+$/, "");
+  var hash = "";
+  if (/(^|\/)(stock|voorraad|wagens|aanbod)/.test(p)) hash = "#stock";
+  else if (/(^|\/)(contact|afspraak)/.test(p)) hash = "#contact";
+  else if (/(^|\/)(review|getuigenis)/.test(p)) hash = "#reviews";
+  else if (/(^|\/)(werkwijze|hoe-het-werkt)/.test(p)) hash = "#werkwijze";
+  else if (/(^|\/)(diensten|services|import|detailing|consult|studio)/.test(p)) hash = "#diensten";
+  location.replace("/" + hash);
+})();
+</script>
+</head>
+<body>
+  <div class="box">
+    <h1>Deze pagina is verhuisd</h1>
+    <p>De site van RKN Motors staat nu op één pagina. Je wordt doorgestuurd naar de startpagina.</p>
+    <a class="btn" href="/">Naar de site</a>
+  </div>
+</body>
+</html>
