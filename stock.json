@@ -1,6 +1,6 @@
 {
  "versie": 1,
- "bijgewerkt": "2026-11-05T15:29:16.426Z",
+ "bijgewerkt": "2026-11-05T15:30:42.731Z",
  "wagens": [
   {
    "id": "c1",
@@ -627,7 +627,7 @@
    "km": 121000,
    "brandstof": "Benzine",
    "bak": "Automaat",
-   "prijs": null,
+   "prijs": 11999,
    "status": "verkocht",
    "len": 0.92,
    "pluspunten": [],
@@ -644,7 +644,7 @@
    "km": 42000,
    "brandstof": "Benzine",
    "bak": "Automaat",
-   "prijs": null,
+   "prijs": 27999,
    "status": "verkocht",
    "len": 0.9,
    "pluspunten": [],
@@ -661,7 +661,7 @@
    "km": 96000,
    "brandstof": "Benzine",
    "bak": "Automaat",
-   "prijs": null,
+   "prijs": 22999,
    "status": "verkocht",
    "len": 0.88,
    "pluspunten": [],
