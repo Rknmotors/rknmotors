@@ -1,6 +1,6 @@
 {
  "versie": 1,
- "bijgewerkt": "2026-11-05T15:24:25.988Z",
+ "bijgewerkt": "2026-11-05T15:25:54.416Z",
  "wagens": [
   {
    "id": "c1",
@@ -534,9 +534,10 @@
    "status": "binnenkort",
    "len": 0.76,
    "pluspunten": [
+    "12 maanden garantie",
     "1 vorige eigenaar",
-    "Ongevalvrij",
     "Niet-roker",
+    "Ongevalvrij",
     "Airco"
    ],
    "info": [
