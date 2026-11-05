@@ -1,6 +1,6 @@
 {
  "versie": 1,
- "bijgewerkt": "2026-11-05T15:25:54.416Z",
+ "bijgewerkt": "2026-11-05T15:29:16.426Z",
  "wagens": [
   {
    "id": "c1",
@@ -613,89 +613,9 @@
    "prijs": 5999,
    "status": "verkocht",
    "len": 0.78,
-   "pluspunten": [
-    "12 maanden garantie",
-    "1 vorige eigenaar",
-    "Onderhouden bij erkende dealer",
-    "Car-Pass beschikbaar",
-    "Niet-roker"
-   ],
-   "info": [
-    [
-     "Eerste inschrijving",
-     "10/2015"
-    ],
-    [
-     "Kilometerstand",
-     "31.000 km"
-    ],
-    [
-     "Motor",
-     "1.0 benzine, 3 cilinders, 998 cc"
-    ],
-    [
-     "Vermogen",
-     "49 kW (67 pk)"
-    ],
-    [
-     "Versnellingsbak",
-     "Manueel, 5 versnellingen"
-    ],
-    [
-     "Carrosserie",
-     "Stadswagen, 5 deuren, 5 zitplaatsen"
-    ],
-    [
-     "Kleur",
-     "Bruin, interieur zwarte stof"
-    ],
-    [
-     "Gewicht",
-     "950 kg"
-    ],
-    [
-     "Verbruik",
-     "4,7 l/100 km (gemiddeld)"
-    ],
-    [
-     "CO₂",
-     "108 g/km · Euro 6b"
-    ],
-    [
-     "Lage-emissiezones",
-     "Toegang tot o.a. Antwerpen, Gent en Brussel"
-    ],
-    [
-     "Vorige eigenaars",
-     "1"
-    ],
-    [
-     "Onderhoud",
-     "Bij een erkende dealer, onderhoudshistoriek aanwezig"
-    ],
-    [
-     "Niet-roker",
-     "Ja"
-    ],
-    [
-     "Garantie",
-     "12 maanden"
-    ],
-    [
-     "Historiek",
-     "Car-Pass beschikbaar"
-    ]
-   ],
-   "uitrusting": [
-    "Airbags voor, opzij en hoofd",
-    "ABS",
-    "ESP",
-    "Bandenspanningscontrole",
-    "Centrale vergrendeling met afstandsbediening",
-    "Stuurbekrachtiging",
-    "Mistlampen",
-    "Isofix"
-   ],
+   "pluspunten": [],
+   "info": [],
+   "uitrusting": [],
    "fotos": []
   },
   {
