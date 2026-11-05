@@ -1,6 +1,6 @@
 {
  "versie": 1,
- "bijgewerkt": "2026-11-05T15:30:42.731Z",
+ "bijgewerkt": "2026-11-05T15:32:55.880Z",
  "wagens": [
   {
    "id": "c1",
@@ -11,7 +11,7 @@
    "km": 88000,
    "brandstof": "Mild hybrid",
    "bak": "Manueel",
-   "prijs": 11200,
+   "prijs": 9999,
    "status": "te koop",
    "len": 0.84,
    "pluspunten": [
