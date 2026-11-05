@@ -1,6 +1,6 @@
 {
  "versie": 1,
- "bijgewerkt": "2026-11-05T15:32:55.880Z",
+ "bijgewerkt": "2026-11-05T15:37:58.770Z",
  "wagens": [
   {
    "id": "c1",
@@ -240,7 +240,7 @@
    "km": 72668,
    "brandstof": "Benzine",
    "bak": "Automaat",
-   "prijs": 21999,
+   "prijs": 20999,
    "status": "te koop",
    "len": 0.9,
    "pluspunten": [
