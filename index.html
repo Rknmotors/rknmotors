@@ -1025,7 +1025,7 @@ let STOCK=(()=>{try{const d=JSON.parse(document.getElementById('stockFallback').
 window.__rknStock=()=>STOCK;
 window.__rknSetStock=list=>{STOCK=list.map(normCar);renderCards()};
 /* stock uit stock.json: dat bestand is de bron, de lijst hierboven is enkel de reserve */
-(async()=>{try{const r=await fetch('stock.json',{cache:'no-cache'});if(!r.ok)return;const j=await r.json();if(j&&Array.isArray(j.wagens)&&j.wagens.length)window.__rknSetStock(j.wagens)}catch(e){}})();
+(async()=>{try{const r=await fetch('stock.json?t='+Date.now(),{cache:'no-store'});if(!r.ok)return;const j=await r.json();if(j&&Array.isArray(j.wagens)&&j.wagens.length)window.__rknSetStock(j.wagens)}catch(e){}})();
 /* live stock uit de database: wat in Beheer wordt opgeslagen, verschijnt meteen bij iedereen */
 (async()=>{try{if(!window.claude||typeof claude.use!=='function')return;const db=await claude.use('db');if(!db)return;window.__rknDb=db;
   db.doc('site/stock').onSnapshot(snap=>{const d=snap&&snap.exists!==false&&snap.data&&snap.data();if(d&&Array.isArray(d.wagens)){STOCK=d.wagens.map(normCar);renderCards()}},()=>{})}catch(e){}})();
@@ -1036,7 +1036,7 @@ const rknPhoto=(()=>{const cache={},queue=[];let active=0;
       const s=await db.doc('fotos/'+id).get();const d=s&&s.exists&&s.data();if(!d||!d.d)throw new Error('missing');
       const bin=atob(d.d),u=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)u[i]=bin.charCodeAt(i);return URL.createObjectURL(new Blob([u],{type:d.t||'image/jpeg'}))})()
       .then(res,rej).finally(()=>{active--;pump()})}};
-  return src=>{if(!src)return Promise.reject(new Error('empty'));if(!String(src).startsWith('db:'))return Promise.resolve(M(src));const id=src.slice(3);
+  return src=>{if(!src)return Promise.reject(new Error('empty'));if(window.__rknLocal&&window.__rknLocal[src])return Promise.resolve(window.__rknLocal[src]);if(!String(src).startsWith('db:'))return Promise.resolve(M(src));const id=src.slice(3);
     return cache[id]||(cache[id]=new Promise((res,rej)=>{queue.push([id,res,rej]);pump()}).catch(e=>{delete cache[id];throw e}))}})();
 window.rknPhoto=rknPhoto;
 const rknSetImg=(img,src)=>{img.dataset.want=src;rknPhoto(src).then(u=>{if(img.dataset.want===src){img.src=u;img.classList.add('ok')}}).catch(()=>{img.classList.add('nofoto')})};
@@ -1494,39 +1494,99 @@ const PLUS=['12 maanden garantie','1 vorige eigenaar','Onderhouden bij erkende d
 const TYPES=['Stadswagen','Hatchback','SUV','Cabrio','Break','Berline','Coupé','Monovolume','Bestelwagen'];
 const FUELS=['Benzine','Diesel','Mild hybrid','Hybride','Plug-in hybride','Elektrisch','LPG'];
 const h=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const pidOf=f=>f&&f.src&&String(f.src).startsWith('db:')?f.src.slice(3):null;
+const pidOf=f=>f&&f.src&&/^fotos\//.test(String(f.src))?String(f.src):null;
+const pathsOf=f=>[f&&f.src,f&&f.thumb].filter(p=>p&&/^fotos\/[A-Za-z0-9_\/.-]+\.jpg$/.test(p));
+/* ---- verbinding met GitHub: de stock en de foto's staan in het project Rknmotors/rknmotors ----
+   Aanmelden gebeurt met een persoonlijke GitHub-sleutel. GitHub controleert die sleutel bij elke actie;
+   zonder geldige sleutel met schrijfrechten kan niets worden opgeslagen. De sleutel staat nergens in de site:
+   hij blijft alleen in dit tabblad (sessionStorage) tot je afmeldt, het tabblad sluit of 2 uur niets doet. */
+const REPO='Rknmotors/rknmotors',BR='main',GH='https://api.github.com/repos/'+REPO,TK='rknGhSleutel',TT='rknGhLaatst',IDLE=2*3600e3;
+let token=null,stockSha=null;const pendingAdd=new Map();window.__rknLocal=window.__rknLocal||{};
+const ss={get:k=>{try{return sessionStorage.getItem(k)}catch(e){return null}},set:(k,v)=>{try{sessionStorage.setItem(k,v)}catch(e){}},del:k=>{try{sessionStorage.removeItem(k)}catch(e){}}};
+const clearTok=()=>{token=null;ss.del(TK);ss.del(TT)};
+const loadTok=()=>{const t=ss.get(TK),l=+ss.get(TT)||0;if(t&&Date.now()-l<IDLE)token=t;else clearTok();return !!token};
+const authErr=()=>{const e=new Error('auth');e.code='auth';return e};
+async function gh(path,opt={}){
+  if(!token||Date.now()-(+ss.get(TT)||0)>IDLE){clearTok();throw authErr()}
+  const r=await fetch(GH+path,{method:opt.method||'GET',cache:'no-store',body:opt.body?JSON.stringify(opt.body):undefined,
+    headers:{Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28',Authorization:'Bearer '+token,...(opt.body?{'Content-Type':'application/json'}:{})}});
+  let j=null;try{j=await r.json()}catch(e){}
+  if(!r.ok){const e=new Error(j&&j.message||('HTTP '+r.status));e.status=r.status;
+    e.code=r.status===401?'auth':r.headers.get('x-ratelimit-remaining')==='0'?'rate_limited':(r.status===403||r.status===404)?'permission_denied':(r.status===409||r.status===422)?'conflict':'http';
+    if(e.code==='auth')clearTok();throw e}
+  ss.set(TT,String(Date.now()));return j}
+const b64utf8=s=>btoa(unescape(encodeURIComponent(s)));
+const utf8b64=b=>decodeURIComponent(escape(atob(String(b).replace(/\s/g,''))));
+const delPhoto=src=>{for(const p of [src,String(src).replace(/\.jpg$/,'-t.jpg')]){pendingAdd.delete(p);if(window.__rknLocal[p]){URL.revokeObjectURL(window.__rknLocal[p]);delete window.__rknLocal[p]}}};
+async function ghLoadStock(){const j=await gh('/contents/stock.json?ref='+BR);stockSha=j.sha;return JSON.parse(utf8b64(j.content))}
+async function ghCommit(data){
+  const keep=new Set(data.wagens.flatMap(c=>c.fotos.flatMap(pathsOf)));
+  const blobs=[];for(const [p,b64] of pendingAdd){if(!keep.has(p))continue;const r=await gh('/git/blobs',{method:'POST',body:{content:b64,encoding:'base64'}});blobs.push({path:p,mode:'100644',type:'blob',sha:r.sha})}
+  const sb=await gh('/git/blobs',{method:'POST',body:{content:b64utf8(JSON.stringify(data,null,1)+'\n'),encoding:'base64'}});
+  const dels=[...new Set(pendingDelete)].filter(p=>!keep.has(p));
+  for(let poging=0;poging<2;poging++){
+    const ref=await gh('/git/ref/heads/'+BR),head=ref.object.sha,cm=await gh('/git/commits/'+head),tr=await gh('/git/trees/'+cm.tree.sha+'?recursive=1');
+    const have=new Map(tr.tree.map(t=>[t.path,t.sha]));
+    if(stockSha&&have.get('stock.json')!==stockSha){const e=new Error('changed');e.code='changed';throw e}
+    const tree=[...blobs,{path:'stock.json',mode:'100644',type:'blob',sha:sb.sha},...dels.filter(p=>have.has(p)).map(p=>({path:p,mode:'100644',type:'blob',sha:null}))];
+    const nt=await gh('/git/trees',{method:'POST',body:{base_tree:cm.tree.sha,tree}});
+    const nc=await gh('/git/commits',{method:'POST',body:{message:'Stock bijgewerkt via het beheer op de website',tree:nt.sha,parents:[head]}});
+    try{await gh('/git/refs/heads/'+BR,{method:'PATCH',body:{sha:nc.sha,force:false}});stockSha=sb.sha;return}catch(e){if(e.code!=='conflict'||poging)throw e}
+  }}
 const clean=c=>({id:c.id,merk:c.merk||'',model:c.model||'',type:c.type||'',jaar:c.jaar?+c.jaar:null,km:c.km||c.km===0?+c.km:null,brandstof:c.brandstof||'',bak:c.bak||'',
   prijs:c.prijs?+c.prijs:null,status:c.status||'te koop',len:c.len||.84,pluspunten:[...(c.pluspunten||[])],info:(c.info||[]).map(r=>[...r]),uitrusting:[...(c.uitrusting||[])],
   fotos:(c.fotos||[]).map(f=>({...f}))});
 
-let dbase=null,assets=null,draft=[],saved=[],editing=null,dirty=false,busy=0,sessionUploads=[],pendingDelete=[],undo=null;
+let draft=[],saved=[],editing=null,dirty=false,busy=0,sessionUploads=[],pendingDelete=[],undo=null;
 const startEdit=(c,isNew)=>{undo={id:c.id,isNew,copy:clean(c),dirty,pend:pendingDelete.length,ups:sessionUploads.length};editing=c};
 let box,root;
 
-async function boot(){
-  if(!window.claude||typeof claude.use!=='function')return;
-  const [user,d]=await Promise.all([claude.use('user'),claude.use('db')]);
-  if(!user||!d)return;
-  let can=false;try{can=await user.canEdit()}catch(e){}
-  if(!can)return;
-  dbase=d;
-  const fab=document.createElement('button');fab.className='adm-fab';fab.type='button';
+let fab=null;
+function showFab(){if(fab)return;fab=document.createElement('button');fab.className='adm-fab';fab.type='button';
   fab.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>Beheer stock';
-  fab.onclick=openPanel;document.body.appendChild(fab);
+  fab.onclick=openPanel;document.body.appendChild(fab)}
+function ensureRoot(){if(root)return;root=document.createElement('div');root.className='adm';root.setAttribute('role','dialog');root.setAttribute('aria-modal','true');root.setAttribute('aria-label','Stock beheren');root.setAttribute('data-lenis-prevent','');
+  root.innerHTML='<div class="adm-box"></div>';box=root.firstChild;document.body.appendChild(root);
+  root.addEventListener('click',e=>{if(e.target===root)tryClose()});
+  addEventListener('keydown',e=>{if(!root.hidden&&e.key==='Escape')tryClose()})}
+function showRoot(){root.hidden=false;document.documentElement.style.overflow='hidden';window.__lenis&&window.__lenis.stop()}
+let loginMode=false;
+function openLogin(){ensureRoot();loginMode=true;editing=null;showRoot();
+  box.innerHTML=head('Aanmelden',`<button class="btn btn-ghost" data-a="close" type="button">Sluiten</button>`)+
+  `<div class="adm-body"><form class="adm-form adm-login" autocomplete="on">
+   <p class="adm-note f w6">Meld je aan met je persoonlijke GitHub-sleutel om de stock te beheren. De sleutel moet schrijfrechten hebben op het project Rknmotors/rknmotors. Hij wordt niet bewaard op de website en vervalt in dit tabblad na 2 uur zonder activiteit.</p>
+   <input type="text" name="username" value="Rknmotors" autocomplete="username" hidden>
+   <div class="f w6"><label for="aPw">GitHub-sleutel</label><input type="password" id="aPw" autocomplete="current-password" required spellcheck="false" placeholder="github_pat_…"></div>
+   <div class="f w6"><button class="btn btn-red" type="submit">Aanmelden</button></div></form></div>`;
+  const fm=box.querySelector('form');setTimeout(()=>box.querySelector('#aPw').focus(),50);
+  box.onclick=e=>{const b=e.target.closest('[data-a=close]');if(b)tryClose()};
+  fm.onsubmit=async e=>{e.preventDefault();const pw=box.querySelector('#aPw').value.trim();if(!pw)return;
+    const btn=fm.querySelector('[type=submit]');btn.disabled=true;btn.textContent='Bezig…';
+    token=pw;ss.set(TT,String(Date.now()));
+    try{const j=await gh('');if(!j||!j.permissions||!j.permissions.push){clearTok();throw Object.assign(new Error('rechten'),{code:'permission_denied'})}
+      ss.set(TK,pw);loginMode=false;showFab();openPanel()}
+    catch(err){clearTok();btn.disabled=false;btn.textContent='Aanmelden';
+      msg(err.code==='auth'?'Deze sleutel is ongeldig of verlopen.':err.code==='permission_denied'?'Deze sleutel heeft geen schrijfrechten op het project Rknmotors/rknmotors.':err.code==='rate_limited'?'Te veel pogingen. Wacht even en probeer opnieuw.':'Aanmelden is niet gelukt. Controleer je internetverbinding en probeer opnieuw.',true)}}}
+function boot(){
+  if(loadTok())showFab();
+  const go=()=>{if(location.hash!=='#beheer')return;history.replaceState(null,'',location.pathname+location.search);loadTok()?(showFab(),openPanel()):openLogin()};
+  addEventListener('hashchange',go);go();
 }
 
-function openPanel(){
-  saved=window.__rknStock().map(clean);draft=saved.map(clean);dirty=false;editing=null;sessionUploads=[];pendingDelete=[];
-  if(!root){root=document.createElement('div');root.className='adm';root.setAttribute('role','dialog');root.setAttribute('aria-modal','true');root.setAttribute('aria-label','Stock beheren');root.setAttribute('data-lenis-prevent','');
-    root.innerHTML='<div class="adm-box"></div>';box=root.firstChild;document.body.appendChild(root);
-    root.addEventListener('click',e=>{if(e.target===root)tryClose()});
-    addEventListener('keydown',e=>{if(!root.hidden&&e.key==='Escape')tryClose()})}
-  root.hidden=false;document.documentElement.style.overflow='hidden';window.__lenis&&window.__lenis.stop();render();
+async function openPanel(){
+  ensureRoot();loginMode=true;editing=null;showRoot();
+  box.innerHTML=head('Stock beheren','<button class="btn btn-ghost" data-a="close" type="button">Sluiten</button>')+'<div class="adm-body"><p class="adm-note">De actuele stock wordt geladen…</p></div>';
+  box.onclick=e=>{if(e.target.closest('[data-a=close]'))tryClose()};
+  let d;try{d=await ghLoadStock()}catch(e){if(e.code==='auth'){fab&&fab.remove();fab=null;openLogin();msg('Je bent afgemeld. Meld je opnieuw aan.',true)}else msg('De stock kon niet worden geladen. Probeer het zo meteen opnieuw.',true);return}
+  const list=(d&&Array.isArray(d.wagens)?d.wagens:window.__rknStock()).map(normCar);
+  saved=list.map(clean);draft=saved.map(clean);dirty=false;editing=null;sessionUploads=[];pendingDelete=[];pendingAdd.clear();
+  loginMode=false;render();
 }
 async function tryClose(){
   if(busy){msg('Even wachten: er worden nog foto\'s geüpload.',true);return}
   if(dirty&&!confirm('Je wijzigingen zijn nog niet opgeslagen. Toch sluiten zonder op te slaan?'))return;
-  if(dirty){const keep=new Set(saved.flatMap(c=>c.fotos.map(pidOf)));for(const id of sessionUploads)if(!keep.has(id))try{await dbase.doc('fotos/'+id).delete();await dbase.doc('fotos/'+id+'-t').delete()}catch(e){}}
+  if(loginMode){root.hidden=true;document.documentElement.style.overflow='';window.__lenis&&window.__lenis.start();return}
+  if(dirty){const keep=new Set(saved.flatMap(c=>c.fotos.map(pidOf)));for(const id of sessionUploads)if(!keep.has(id))await delPhoto(id)}
   root.hidden=true;document.documentElement.style.overflow='';window.__lenis&&window.__lenis.start();
 }
 function setDirty(){dirty=true;const s=box.querySelector('[data-a=save]');if(s)s.disabled=!!busy}
@@ -1537,7 +1597,7 @@ function render(){editing?renderEdit():renderList()}
 
 function renderList(){
   const statusTxt={'te koop':'Te koop','binnenkort':'Binnenkort','verkocht':'Verkocht'};
-  box.innerHTML=head('Stock beheren',`<button class="btn btn-ghost" data-a="new" type="button">+ Nieuwe wagen</button><button class="btn btn-red" data-a="save" type="button" ${dirty&&!busy?'':'disabled'}>Opslaan en publiceren</button><button class="btn btn-ghost" data-a="close" type="button">Sluiten</button>`)+
+  box.innerHTML=head('Stock beheren',`<button class="btn btn-ghost" data-a="new" type="button">+ Nieuwe wagen</button><button class="btn btn-red" data-a="save" type="button" ${dirty&&!busy?'':'disabled'}>Opslaan en publiceren</button><button class="btn btn-ghost" data-a="close" type="button">Sluiten</button><button class="btn btn-ghost" data-a="logout" type="button">Afmelden</button>`)+
   `<div class="adm-body"><p class="adm-note">De volgorde hier is de volgorde op de site. Wagens die binnenkort komen en verkochte wagens staan op de site altijd achteraan. Klik na je aanpassingen op <b>Opslaan en publiceren</b>.</p>
   <ul class="adm-list">${draft.map((c,i)=>{const f=c.fotos[0];return `<li class="adm-row"><div class="th">${f?`<img data-src="${h(f.thumb||f.src)}" alt="">`:'geen foto'}</div>
     <div><b>${h(c.merk)} ${h(c.model)}</b><span><i class="st ${c.status==='te koop'?'':h(c.status)}">${statusTxt[c.status]||c.status}</i>${c.prijs?'€ '+(+c.prijs).toLocaleString('nl-BE'):'geen prijs'} · ${c.fotos.length} foto${c.fotos.length===1?'':"'s"}</span></div>
@@ -1545,12 +1605,13 @@ function renderList(){
   window.rknHydrate&&rknHydrate(box);
   box.onclick=e=>{const b=e.target.closest('[data-a]');if(!b||b.disabled)return;const i=+b.dataset.i,a=b.dataset.a;
     if(a==='close')tryClose();
+    else if(a==='logout'){if(dirty&&!confirm('Je wijzigingen zijn nog niet opgeslagen. Toch afmelden?'))return;clearTok();dirty=false;pendingAdd.clear();fab&&fab.remove();fab=null;root.hidden=true;document.documentElement.style.overflow='';window.__lenis&&window.__lenis.start()}
     else if(a==='save')save();
     else if(a==='new'){const c=clean({id:'c'+Date.now().toString(36),status:'te koop',pluspunten:['12 maanden garantie','Niet-roker']});undo=null;draft.unshift(c);startEdit(c,true);setDirty();render()}
     else if(a==='edit'){startEdit(draft[i],false);render()}
     else if(a==='up'||a==='down'){const j=a==='up'?i-1:i+1;[draft[i],draft[j]]=[draft[j],draft[i]];setDirty();render()}
     else if(a==='del'){const c=draft[i];if(!confirm(`${c.merk} ${c.model} verwijderen? Gebruik liever "Verkocht" als de wagen verkocht is.`))return;
-      c.fotos.forEach(f=>{const id=pidOf(f);id&&pendingDelete.push(id)});draft.splice(i,1);setDirty();render()}};
+      c.fotos.forEach(f=>pendingDelete.push(...pathsOf(f)));draft.splice(i,1);setDirty();render()}};
 }
 
 function renderEdit(){
@@ -1591,14 +1652,14 @@ function renderEdit(){
     if(a==='cancel'){if(busy){msg('Even wachten: er worden nog foto\'s geüpload.',true);return}
       const u=undo,k=draft.indexOf(c);
       const keep=new Set([...saved.flatMap(x=>x.fotos.map(pidOf)),...(u?u.copy.fotos.map(pidOf):[])]);
-      for(const id of sessionUploads.slice(u?u.ups:0))if(!keep.has(id)){dbase.doc('fotos/'+id).delete().catch(()=>{});dbase.doc('fotos/'+id+'-t').delete().catch(()=>{})}
+      for(const id of sessionUploads.slice(u?u.ups:0))if(!keep.has(id))delPhoto(id);
       if(u){sessionUploads.length=u.ups;pendingDelete.length=u.pend;
         if(u.isNew){if(k>=0)draft.splice(k,1)}else if(k>=0)draft[k]=clean(u.copy);
         dirty=u.dirty}
       editing=null;undo=null;render();return}
     if(a==='back'){if(!c.merk.trim()||!c.model.trim()){msg('Vul minstens het merk en het model in.',true);return}editing=null;render()}
     else if(a==='pl'||a==='pr'){const k=a==='pl'?j-1:j+1;[c.fotos[j],c.fotos[k]]=[c.fotos[k],c.fotos[j]];setDirty();renderEdit()}
-    else if(a==='pd'){const f=c.fotos[j];if(f._busy)return;{const id=pidOf(f);id&&pendingDelete.push(id)}c.fotos.splice(j,1);setDirty();renderEdit()}};
+    else if(a==='pd'){const f=c.fotos[j];if(f._busy)return;pendingDelete.push(...pathsOf(f));c.fotos.splice(j,1);setDirty();renderEdit()}};
 }
 
 const toB64=bl=>new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(String(r.result).split(',')[1]||'');r.onerror=rej;r.readAsDataURL(bl)});
@@ -1613,16 +1674,16 @@ async function addPhotos(c,files){
   const slots=files.map(()=>{const f={src:'',alt:'',_busy:true};c.fotos.push(f);return f});busy+=files.length;setDirty();if(editing===c)renderEdit();
   let failed=0;
   for(let k=0;k<files.length;k++){const f=slots[k];
-    try{let b64='',tries=[[1280,.78],[1100,.7],[960,.62],[800,.55]];
-      for(const [mx,q] of tries){const bl=await shrink(files[k],mx,q);b64=await toB64(bl);if(b64.length<235000)break}
-      if(b64.length>=235000)throw new Error('te groot');
-      const id='p'+Date.now().toString(36)+Math.random().toString(36).slice(2,8);
-      const tb64=await toB64(await shrink(files[k],640,.64));
-      await dbase.doc('fotos/'+id).set({d:b64,t:'image/jpeg'});sessionUploads.push(id);
-      await dbase.doc('fotos/'+id+'-t').set({d:tb64,t:'image/jpeg'});
-      Object.assign(f,{src:'db:'+id,thumb:'db:'+id+'-t',alt:base?base+', foto '+(c.fotos.indexOf(f)+1):''});delete f._busy}
+    try{let b64='',tries=[[1600,.82],[1400,.76],[1200,.7],[1000,.62]];
+      for(const [mx,q] of tries){const bl=await shrink(files[k],mx,q);b64=await toB64(bl);if(b64.length<900000)break}
+      if(b64.length>=900000)throw new Error('te groot');
+      const id='p'+Date.now().toString(36)+Math.random().toString(36).slice(2,8),dir='fotos/'+String(c.id).replace(/[^A-Za-z0-9_-]/g,'')+'/';
+      const tbl=await shrink(files[k],640,.64),tb64=await toB64(tbl),src=dir+id+'.jpg',th=dir+id+'-t.jpg';
+      pendingAdd.set(src,b64);pendingAdd.set(th,tb64);sessionUploads.push(src);
+      window.__rknLocal[src]=URL.createObjectURL(await shrink(files[k],1600,.82));window.__rknLocal[th]=URL.createObjectURL(tbl);
+      Object.assign(f,{src,thumb:th,alt:base?base+', foto '+(c.fotos.indexOf(f)+1):''});delete f._busy}
     catch(e){failed++;c.fotos.splice(c.fotos.indexOf(f),1);
-      if(e&&e.code==='quota_exceeded'){msg('De opslag voor foto\'s is vol. Verwijder eerst oude foto\'s.',true)}}
+}
     busy--;if(editing===c&&!root.hidden)renderEdit()}
   if(failed&&editing===c)msg(failed===1?'Eén foto kon niet worden geüpload. Probeer opnieuw (JPG of PNG).':failed+' foto\'s konden niet worden geüpload. Probeer opnieuw (JPG of PNG).',true);
 }
@@ -1632,12 +1693,13 @@ async function save(){
   const bad=draft.find(c=>!c.merk.trim()||!c.model.trim());if(bad){msg('Een wagen heeft nog geen merk of model.',true);return}
   const b=box.querySelector('[data-a=save]');b.disabled=true;b.textContent='Bezig met opslaan…';
   const out=draft.map(c=>{const x=clean(c);x.fotos=x.fotos.filter(f=>f.src).map(({_busy,...f})=>f);return x});
-  try{await dbase.doc('site/stock').set({versie:1,bijgewerkt:new Date().toISOString(),wagens:out});
-    for(const id of new Set(pendingDelete))try{await dbase.doc('fotos/'+id).delete();await dbase.doc('fotos/'+id+'-t').delete()}catch(e){}
-    saved=out.map(clean);draft=out.map(clean);pendingDelete=[];sessionUploads=[];dirty=false;
-    window.__rknSetStock(out.map(clean));render();msg('Opgeslagen. De site is bijgewerkt voor iedereen.')}
+  try{await ghCommit({versie:1,bijgewerkt:new Date().toISOString(),wagens:out});
+    saved=out.map(clean);draft=out.map(clean);pendingDelete=[];sessionUploads=[];pendingAdd.clear();dirty=false;
+    window.__rknSetStock(out.map(clean));render();msg('Opgeslagen. Binnen 1 à 2 minuten ziet iedereen de nieuwe stock, op elk toestel.')}
   catch(e){b.disabled=false;b.textContent='Opslaan en publiceren';const code=e&&e.code;
-    msg(code==='permission_denied'||code==='not_granted'?'Je hebt geen rechten om de stock aan te passen.':
+    msg(code==='auth'?'Je bent afgemeld of je sleutel is verlopen. Sluit dit venster en meld je opnieuw aan via /beheer (je wijzigingen gaan dan verloren).':
+        code==='changed'?'De stock is intussen ergens anders aangepast. Sluit het beheer en open het opnieuw, zodat je met de nieuwste versie werkt.':
+        code==='permission_denied'||code==='not_granted'?'Je GitHub-sleutel heeft geen schrijfrechten op het project. Maak een sleutel met "Contents: Read and write".':
         code==='quota_exceeded'?'De opslag is vol. Verwijder oude wagens of foto\'s.':
         code==='resource_exhausted'||code==='rate_limited'?'Even te snel na elkaar opgeslagen. Wacht een minuutje en probeer opnieuw.':
         code==='too_large'?'De gegevens zijn te groot om op te slaan.':'Opslaan is niet gelukt. Probeer het zo meteen opnieuw.',true)}

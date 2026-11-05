@@ -43,6 +43,19 @@ Alles staat in `stock.json`. Eén wagen ziet er zo uit:
 - `len` bepaalt hoe breed de getekende wagen op de kaart staat (0,76 tot 0,92)
 - Zet de foto's in een nieuwe map onder `fotos/` met zowel een grote als een thumbnail-versie
 
+## Stock beheren via de website
+
+Ga naar **/beheer** (bv. www.rknmotors.be/beheer) en meld je aan met een persoonlijke
+GitHub-sleutel (fine-grained personal access token) met alleen toegang tot dit project:
+
+- Repository access: *Only select repositories* → `Rknmotors/rknmotors`
+- Permissions → Repository permissions → **Contents: Read and write**
+
+Het beheer leest `stock.json`, en bij **Opslaan en publiceren** schrijft het de stock en de
+nieuwe foto's (`fotos/<wagen-id>/…`) in één commit naar `main`. GitHub Pages zet dat binnen
+1 à 2 minuten online. De sleutel staat nergens in de code: hij blijft alleen in het open
+tabblad (sessionStorage) en vervalt na 2 uur zonder activiteit of bij Afmelden.
+
 ## Publiceren
 
 Elke push naar `main` zet de site automatisch live via GitHub Pages. Een wijziging staat
