@@ -113,6 +113,7 @@ h1,h2,h3{font-family:var(--display);font-weight:800;font-stretch:112%;letter-spa
 .item ul li{display:flex;align-items:center;gap:6px}
 .item ul.full{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 18px}
 @media (max-width:420px){.item ul.full{grid-template-columns:1fr}}
+@media (min-width:901px){.item{grid-template-columns:minmax(0,1.4fr) minmax(0,1.7fr) 250px}}
 .item ul.full li{align-items:flex-start}.item ul.full li::before{flex:none;margin-top:.55em}
 .item ul li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--ink-y)}
 .buy{display:flex;align-items:center;gap:18px;justify-content:flex-end}
@@ -266,18 +267,23 @@ footer a:hover{color:#fff}
       </article>
       <article class="item">
         <div><span class="badge">Promo</span><h3>Complete dieptereiniging</h3></div>
-        <div><p>Grondige reiniging van interieur en exterieur.</p><ul><li>Interieur</li><li>Exterieur</li></ul></div>
+        <div><p>Grondige reiniging van interieur en exterieur.</p><ul class="full"><li>Dieptereiniging interieur</li><li>Dieptereiniging exterieur</li><li>Vlekken verwijderen</li><li>Kunststof reinigen en laten glanzen</li><li>Velgen reinigen</li><li>Tyre shine</li><li>Ruiten binnen en buiten</li><li>Stofzuigen, ook de koffer</li></ul></div>
         <div class="buy"><div class="price"><s>€ 250</s><b>€ 130</b></div><a class="btn btn-red" href="#afspraak" data-pick="Complete dieptereiniging">Kies</a></div>
       </article>
       <article class="item">
         <div><h3>Interieurreiniging</h3></div>
-        <div><p>Verzorgde reiniging van het interieur.</p><ul><li>Interieur</li></ul></div>
+        <div><p>Verzorgde reiniging van het interieur.</p><ul class="full"><li>Stofzuigen, ook de koffer</li><li>Zetels en tapijten dieptereinigen</li><li>Vlekken verwijderen</li><li>Dashboard en kunststof laten glanzen</li><li>Deurpanelen en deurstijlen</li><li>Ruiten aan de binnenkant</li></ul></div>
         <div class="buy"><div class="price"><b>€ 75</b></div><a class="btn btn-red" href="#afspraak" data-pick="Interieurreiniging">Kies</a></div>
       </article>
       <article class="item">
         <div><h3>Exterieurreiniging</h3></div>
-        <div><p>Professionele wasbeurt van de buitenzijde.</p><ul><li>Exterieur</li></ul></div>
+        <div><p>Professionele wasbeurt van de buitenzijde.</p><ul class="full"><li>Voorwas met actief schuim</li><li>Handwas</li><li>Velgen reinigen</li><li>Tyre shine</li><li>Drogen met microvezel</li><li>Ruiten aan de buitenkant</li></ul></div>
         <div class="buy"><div class="price"><b>€ 30</b></div><a class="btn btn-red" href="#afspraak" data-pick="Exterieurreiniging">Kies</a></div>
+      </article>
+      <article class="item">
+        <div><h3>Koplamprestauratie</h3></div>
+        <div><p>Doffe of vergeelde koplampen weer helder, voor een betere uitstraling en meer zicht 's nachts.</p><ul class="full"><li>Beide koplampen</li><li>Schuren van de doffe laag</li><li>Polijsten tot helder</li><li>UV-beschermlaag</li></ul></div>
+        <div class="buy"><div class="price"><b>€ 59</b></div><a class="btn btn-red" href="#afspraak" data-pick="Koplamprestauratie">Kies</a></div>
       </article>
     </div>
     <p class="note">Heb je een SUV, 4x4 of bestelwagen? Dan kan de prijs iets hoger liggen. Vraag het gerust even na, dan krijg je meteen een prijs op maat.</p>
@@ -309,6 +315,7 @@ footer a:hover{color:#fff}
           <option value="Complete dieptereiniging">Complete dieptereiniging · € 130</option>
           <option value="Interieurreiniging">Interieurreiniging · € 75</option>
           <option value="Exterieurreiniging">Exterieurreiniging · € 30</option>
+          <option value="Koplamprestauratie">Koplamprestauratie · € 59</option>
           <option value="">Ik twijfel nog, geef me advies</option>
         </select>
       </div>
