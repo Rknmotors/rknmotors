@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>RKN Studio · RKN Motors</title>
+<meta name="description" content="RKN Studio: sfeerverlichting, sterrenhemel, sportstuur en Apple CarPlay of Android Auto. Een interieur op maat van jouw wensen.">
+<link rel="canonical" href="https://www.rknmotors.be/studio/">
+<meta name="theme-color" content="#121314">
+<link rel="icon" href="/favicon.ico?v=3" sizes="48x48">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=3">
+<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png?v=3">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Zelfde huisstijl als de hoofdpagina van rknmotors.be: asfalt-donker, RKN-geel als enige accent. */
+:root{
+  --asphalt:#121314; --asphalt-2:#1a1b1d; --asphalt-3:#25272a; --line:#2e3034;
+  --paper:#ECEBE7; --paper-2:#E2E0DA; --white:#F7F7F4; --chrome:#9EA1A7; --chrome-d:#6B6E74;
+  --red:#F5B800; --red-l:#FFCB2E; --ink-y:#7A5B00; --on-y:#121314;
+  --display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --body:"Instrument Sans","Helvetica Neue",Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --gutter:clamp(16px,4vw,56px);
+  --ease:cubic-bezier(.16,1,.3,1);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{background:var(--asphalt);color:var(--white);font-family:var(--body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden;margin:0}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{width:100%;max-width:1320px;margin-inline:auto;padding-inline:var(--gutter)}
+h1,h2,h3{font-family:var(--display);font-weight:800;font-stretch:112%;letter-spacing:-.025em;line-height:.95;margin:0;text-wrap:balance}
+.eyebrow{font-family:var(--mono);font-size:clamp(16px,1.5vw,22px);font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--chrome);display:flex;gap:10px;align-items:center;margin:0}
+.eyebrow::before{content:"";width:clamp(28px,2.6vw,40px);height:3px;background:var(--red)}
+.h2{font-size:clamp(38px,5.6vw,86px)}
+.lede{font-size:clamp(17px,1.35vw,20px);color:var(--chrome);max-width:56ch;margin:20px 0 0}
+.light{background:var(--paper);color:var(--asphalt)}
+.light .lede{color:#4b4d52}
+.light .eyebrow{color:var(--chrome-d)}
+:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+
+/* knoppen */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;font-weight:600;font-size:15px;text-decoration:none;border:1.5px solid transparent;transition:background .3s,color .3s,border-color .3s,transform .4s var(--ease);cursor:pointer;font-family:var(--body)}
+.btn:hover{transform:translateY(-2px)}
+.btn-red{background:var(--red);color:var(--on-y)}
+.btn-red:hover{background:var(--red-l)}
+.btn-ghost{border-color:currentColor;color:inherit;background:transparent}
+.btn-ghost:hover{background:var(--white);color:var(--asphalt);border-color:var(--white)}
+.light .btn-ghost:hover{background:var(--asphalt);color:var(--white);border-color:var(--asphalt)}
+.btn svg{width:18px;height:18px;flex:none}
+
+/* menu (gelijk aan de hoofdpagina) */
+.nav{position:fixed;inset:0 0 auto 0;z-index:50;padding-top:env(safe-area-inset-top,0px);transition:background .4s,border-color .4s;border-bottom:1px solid transparent}
+.nav.solid{background:rgba(18,19,20,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:rgba(255,255,255,.06)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:74px;gap:20px}
+.logo{display:inline-flex;align-items:center;gap:14px;text-decoration:none;color:var(--white)}
+.logo .lk{display:flex;flex-direction:column;gap:6px}
+.logo .wm{font-family:var(--display);font-weight:900;font-stretch:125%;font-size:34px;line-height:.82;letter-spacing:-.025em;display:inline-flex;align-items:center;transform:skewX(-8deg);transform-origin:left bottom}
+.logo .wm .k{color:var(--red)}
+.logo small{font-family:var(--display);font-weight:600;font-stretch:125%;font-size:8.5px;letter-spacing:.6em;color:var(--white);padding-left:1px;text-transform:uppercase}
+.nav ul{display:flex;gap:40px;list-style:none;margin:0;padding:0}
+.nav ul a{text-decoration:none;font-size:20px;font-weight:500;color:#cfd0d3;position:relative}
+.nav ul a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
+.nav ul a:hover,.nav ul a[aria-current]{color:#fff}
+.nav ul a:hover::after,.nav ul a[aria-current]::after{transform:scaleX(1)}
+.nav .btn{padding:11px 18px;font-size:14px}
+.nav-r{display:flex;align-items:center;gap:10px}
+.menu-btn{display:none;width:46px;height:46px;border-radius:50%;border:1.5px solid rgba(255,255,255,.35);background:rgba(18,19,20,.4);color:#fff;cursor:pointer;place-items:center;padding:0;flex:none}
+.menu-btn span{position:relative;display:block;width:18px;height:2px;background:currentColor;border-radius:2px;transition:background .2s}
+.menu-btn span::before,.menu-btn span::after{content:"";position:absolute;left:0;width:18px;height:2px;background:currentColor;border-radius:2px;transition:transform .35s var(--ease)}
+.menu-btn span::before{top:-6px}.menu-btn span::after{top:6px}
+.menu-open .menu-btn span{background:transparent}
+.menu-open .menu-btn span::before{transform:translateY(6px) rotate(45deg)}
+.menu-open .menu-btn span::after{transform:translateY(-6px) rotate(-45deg)}
+.mnav{position:fixed;inset:0;z-index:49;background:rgba(14,15,16,.97);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:calc(96px + env(safe-area-inset-top,0px)) var(--gutter) calc(28px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:26px;overflow-y:auto;opacity:0;visibility:hidden;transition:opacity .3s,visibility 0s .3s}
+.menu-open .mnav{opacity:1;visibility:visible;transition:opacity .3s}
+.mnav ul{list-style:none;margin:0;padding:0;display:grid}
+.mnav ul a{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid var(--line);font-family:var(--display);font-weight:800;font-stretch:112%;font-size:clamp(30px,8vw,46px);letter-spacing:-.02em;text-decoration:none;color:var(--white)}
+.mnav ul a::after{content:"→";font-size:.6em;color:var(--red-l)}
+.mnav .mnav-cta{display:flex;gap:10px;flex-wrap:wrap}
+.mnav .mnav-cta .btn{flex:1 1 auto;justify-content:center}
+.mnav p{color:var(--chrome);font-size:14px;margin-top:auto}
+
+
+/* uitklapmenu Diensten */
+.nav li.has-sub{position:relative}
+.nav .has-sub>a{display:inline-flex;align-items:center;gap:6px}
+.nav .has-sub .chev{width:14px;height:14px;transition:transform .3s var(--ease)}
+.nav .has-sub:hover .chev,.nav .has-sub:focus-within .chev{transform:rotate(180deg)}
+.nav .sub{position:absolute;left:-16px;top:100%;padding-top:16px;display:none;z-index:60}
+.nav .has-sub:hover .sub,.nav .has-sub:focus-within .sub{display:block}
+.nav .sub ul{display:grid;gap:2px;background:rgba(18,19,20,.97);border:1px solid var(--line);border-radius:14px;padding:8px;min-width:270px;box-shadow:0 24px 50px rgba(0,0,0,.5)}
+.nav .sub a{display:flex;flex-direction:column;gap:2px;padding:10px 12px;border-radius:9px;font-size:16px;font-weight:600;color:#fff}
+.nav .sub a::after{display:none}
+.nav .sub a:hover,.nav .sub a[aria-current]{background:var(--asphalt-3)}
+.nav .sub a[aria-current]{box-shadow:inset 3px 0 0 var(--red)}
+.nav .sub small{font-size:12.5px;font-weight:400;color:var(--chrome)}
+.mnav ul.msub{padding:2px 0 8px 14px;border-bottom:1px solid var(--line)}
+.mnav ul.msub a{font-family:var(--body);font-weight:600;font-stretch:100%;font-size:19px;letter-spacing:0;padding:10px 0;border-bottom:0;color:#d6d7da}
+.mnav ul.msub a::after{font-size:.8em}
+
+/* dienstpagina's */
+.hero-shot.tall{aspect-ratio:9/16;max-height:640px;width:auto;justify-self:end;background:#000}
+.hero-shot.tall img,.hero-shot video{width:100%;height:100%;object-fit:cover;display:block}
+.steps{list-style:none;margin:clamp(28px,4vw,48px) 0 0;padding:0;display:grid;grid-template-columns:repeat(var(--n,4),minmax(0,1fr));gap:clamp(14px,2vw,24px)}
+.steps li{border-top:2px solid var(--asphalt);padding-top:18px;min-width:0}
+.steps .n{font-family:var(--mono);font-size:13px;letter-spacing:.12em;color:var(--ink-y)}
+.steps h3{font-size:clamp(22px,2vw,28px);letter-spacing:-.02em;margin-top:10px}
+.steps p{margin:10px 0 0;color:#4b4d52;font-size:16px;max-width:34ch}
+.opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(12px,1.6vw,18px);margin-top:clamp(28px,4vw,48px)}
+.opt{background:#fff;border:1px solid #dcdad3;border-radius:16px;padding:22px;min-width:0}
+.opt h3{font-size:clamp(21px,1.8vw,26px);letter-spacing:-.02em}
+.opt p{margin:8px 0 0;color:#4b4d52;font-size:16px}
+.split{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:start}
+.vidbox{border-radius:18px;overflow:hidden;background:#000;aspect-ratio:9/16;max-height:620px;max-width:100%;justify-self:end;box-shadow:0 30px 60px rgba(18,19,20,.25)}
+.vidbox video{width:100%;height:100%;object-fit:cover;display:block}
+.pricenote{margin:22px 0 0;font-size:15px;color:#4b4d52;max-width:70ch}
+@media (max-width:900px){
+  .hero-shot.tall{justify-self:start;max-height:520px}
+  .steps{grid-template-columns:1fr 1fr}
+  .split{grid-template-columns:1fr}
+  .vidbox{justify-self:start;max-height:520px}
+}
+@media (max-width:620px){.steps,.opts{grid-template-columns:1fr}}
+
+/* hero */
+.hero{position:relative;padding-block:clamp(120px,16vh,170px) clamp(40px,6vw,72px);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(28px,4vw,64px);align-items:end}
+.hero h1{font-size:clamp(48px,7.6vw,124px);font-stretch:118%;line-height:.88;letter-spacing:-.04em;margin-top:22px}
+.hero h1 em{font-style:normal;color:var(--red-l)}
+.hero .lede{color:#c9cacd}
+.hero-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px}
+.hero-shot{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:16/10;background:var(--asphalt-2);max-width:100%}
+.hero-shot img{width:100%;height:100%;object-fit:cover}
+.hero-shot .tag{position:absolute;left:14px;bottom:14px;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;background:rgba(18,19,20,.8);padding:8px 12px;border-radius:999px;color:var(--white)}
+.facts{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:28px;color:#cfd0d3;font-size:15px}
+.facts span{display:flex;align-items:center;gap:8px}
+.facts svg{width:18px;height:18px;color:var(--red);flex:none}
+
+/* aanbod */
+.offer{padding-block:clamp(64px,9vw,120px)}
+.offer-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:clamp(28px,4vw,48px)}
+.offer-head .lede{margin-top:16px}
+.list{display:grid;border-top:1.5px solid var(--asphalt)}
+.item{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1.6fr) auto;gap:clamp(16px,3vw,40px);align-items:center;padding-block:clamp(22px,3vw,34px);border-bottom:1px solid rgba(18,19,20,.16)}
+.item h3{font-size:clamp(24px,2.5vw,36px);letter-spacing:-.02em;line-height:1}
+.item .badge{display:inline-block;margin-bottom:10px;font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;background:var(--asphalt);color:var(--red-l);padding:5px 10px;border-radius:999px}
+.item p{margin:0;color:#4b4d52;font-size:16px}
+.item ul{margin:10px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px 14px;font-size:14px;color:#3a3c40}
+.item ul li{display:flex;align-items:center;gap:6px}
+.item ul.full{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 18px}
+@media (max-width:420px){.item ul.full{grid-template-columns:1fr}}
+@media (min-width:901px){.item{grid-template-columns:minmax(0,1.4fr) minmax(0,1.7fr) 250px}}
+.item ul.full li{align-items:flex-start}.item ul.full li::before{flex:none;margin-top:.55em}
+.item ul li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--ink-y)}
+.buy{display:flex;align-items:center;gap:18px;justify-content:flex-end}
+.price{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.price b{display:block;font-family:var(--display);font-weight:800;font-stretch:112%;font-size:clamp(30px,3vw,44px);letter-spacing:-.03em;line-height:1}
+.price s{display:block;color:var(--chrome-d);font-size:15px;margin-bottom:4px}
+.price small{display:block;font-size:12.5px;color:var(--chrome-d);margin-top:4px}
+.buy .btn{white-space:nowrap}
+.note{margin:22px 0 0;font-size:14.5px;color:#4b4d52;max-width:80ch}
+
+/* werk */
+.work{padding-block:clamp(64px,9vw,120px)}
+.gallery{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:clamp(10px,1.4vw,18px);margin-top:clamp(28px,4vw,48px)}
+.gallery figure{margin:0;border-radius:16px;overflow:hidden;background:var(--asphalt-2);position:relative}
+.gallery img{width:100%;height:100%;aspect-ratio:4/3;object-fit:cover}
+.gallery figcaption{position:absolute;left:12px;bottom:12px;font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;background:rgba(18,19,20,.82);padding:7px 11px;border-radius:999px}
+.gallery .n{color:var(--red-l);margin-right:8px}
+
+/* afspraak */
+.book{padding-block:clamp(64px,9vw,120px);border-top:1px solid var(--line)}
+.book-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(28px,5vw,80px);align-items:start}
+.book h2{font-size:clamp(42px,6.6vw,104px);font-stretch:118%;letter-spacing:-.04em;line-height:.9;margin-top:20px}
+.book h2 em{font-style:normal;color:var(--red-l)}
+.picker{display:grid;gap:10px;margin-top:28px}
+.picker label{font-family:var(--mono);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--chrome)}
+.picker select{appearance:none;width:100%;font:inherit;font-size:17px;color:var(--white);background:var(--asphalt-2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23F5B800' stroke-width='2.4'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 16px center/18px;border:1.5px solid var(--line);border-radius:14px;padding:16px 48px 16px 18px;cursor:pointer}
+.picker select:focus{border-color:var(--red);outline:none}
+.book-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.book-cta .btn{justify-content:center}
+.cards{display:grid;gap:12px}
+.cbox{background:var(--asphalt-2);border:1px solid var(--line);border-radius:16px;padding:20px 22px;display:grid;gap:6px}
+.cbox span{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--chrome)}
+.cbox b{font-size:19px;font-weight:600;line-height:1.4}
+.cbox b i{font-style:normal;color:var(--chrome)}
+.cbox .sel{user-select:all}
+.cbox small{color:var(--chrome);font-size:14px}
+.copy{justify-self:start;margin-top:6px;font:inherit;font-size:13px;font-weight:600;color:var(--white);background:transparent;border:1.5px solid var(--line);border-radius:999px;padding:7px 14px;cursor:pointer}
+.copy:hover{border-color:var(--red);color:var(--red-l)}
+
+footer{background:var(--asphalt);border-top:1px solid var(--line);padding-block:44px calc(30px + env(safe-area-inset-bottom,0px));color:var(--chrome);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
+footer nav{display:flex;gap:18px;flex-wrap:wrap}
+footer a{text-decoration:none}
+footer a:hover{color:#fff}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));translate:-50% 0;background:var(--white);color:var(--asphalt);padding:10px 16px;border-radius:999px;font-weight:600;font-size:14px;z-index:80;opacity:0;pointer-events:none;transition:opacity .3s}
+.toast.show{opacity:1}
+
+@media (min-width:901px) and (max-width:1200px){.nav ul{gap:24px}.nav ul a{font-size:17px}}
+@media (max-width:900px){
+  .nav ul{display:none}.menu-btn{display:grid}
+  .hero .wrap,.book-grid{grid-template-columns:1fr}
+  .item{grid-template-columns:1fr;gap:12px}
+  .buy{justify-content:space-between}
+  .price{text-align:left}
+  .gallery{grid-template-columns:1fr 1fr}
+  .gallery figure:first-child{grid-column:1/-1}
+}
+@media (min-width:901px){.mnav{display:none}}
+@media (max-width:620px){
+  .h2{font-size:clamp(28px,8.9vw,40px)}
+  .hero{padding-block:104px 36px}
+  .hero-cta .btn,.book-cta .btn{flex:1 1 auto;justify-content:center}
+  .gallery{grid-template-columns:1fr}
+  .buy{flex-wrap:wrap}
+  footer .wrap{flex-direction:column;align-items:flex-start}
+}
+@media (max-width:420px){.nav .btn{padding:10px 14px;font-size:13px}.nav .wrap{height:66px}}
+@media (max-width:370px){.nav .nav-r>.btn{display:none}}
+@media (hover:none){.btn:hover{transform:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+<script>
+/* Altijd bovenaan openen (tenzij er naar een onderdeel zoals #aanbod gelinkt wordt). */
+(function () {
+  try { if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; } catch (e) {}
+  var toTop = function () {
+    if (location.hash && location.hash.length > 1) return;
+    var h = document.documentElement, prev = h.style.scrollBehavior;
+    h.style.scrollBehavior = 'auto'; window.scrollTo(0, 0); h.style.scrollBehavior = prev;
+  };
+  toTop();
+  document.addEventListener('DOMContentLoaded', toTop);
+  window.addEventListener('load', toTop);
+  window.addEventListener('pageshow', toTop);
+})();
+</script>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="RKN Motors, naar de homepage"><span class="lk"><span class="wm">R<span class="k">K</span>N</span><small>Motors</small></span></a>
+    <ul>
+      <li><a href="/#stock">Stock</a></li>
+      <li class="has-sub"><a href="/#diensten">Diensten <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a><div class="sub"><ul><li><a href="/import/">RKN Import<small>Jouw wagen uit het buitenland</small></a></li><li><a href="/consult/">RKN Consult<small>Advies bij je aankoop</small></a></li><li><a href="/detailing/">RKN Detailing<small>Reiniging en verzorging</small></a></li><li><a href="/studio/" aria-current="page">RKN Studio<small>Interieur op maat</small></a></li></ul></div></li>
+      <li><a href="/#werkwijze">Hoe wij werken</a></li>
+      <li><a href="/#reviews">Reviews</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul></div></li>
+      <li><a href="/#werkwijze">Hoe wij werken</a></li>
+      <li><a href="/#reviews">Reviews</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+    <div class="nav-r"><a class="btn btn-red" href="#afspraak">Plan een afspraak</a><button class="menu-btn" id="menuBtn" aria-label="Menu openen" aria-expanded="false" aria-controls="mnav"><span></span></button></div>
+  </div>
+</header>
+<nav class="mnav" id="mnav" aria-label="Menu">
+  <ul>
+    <li><a href="/#stock">Stock</a></li>
+    <li><a href="/#diensten">Diensten</a><ul class="msub"><li><a href="/import/">RKN Import</a></li><li><a href="/consult/">RKN Consult</a></li><li><a href="/detailing/">RKN Detailing</a></li><li><a href="/studio/">RKN Studio</a></li></ul></li>
+    <li><a href="/#werkwijze">Hoe wij werken</a></li>
+    <li><a href="/#reviews">Reviews</a></li>
+    <li><a href="/#contact">Contact</a></li>
+  </ul></li>
+    <li><a href="/#werkwijze">Hoe wij werken</a></li>
+    <li><a href="/#reviews">Reviews</a></li>
+    <li><a href="/#contact">Contact</a></li>
+  </ul>
+  <div class="mnav-cta"><a class="btn btn-red" href="tel:+32474990977">Bel ons</a><a class="btn btn-ghost" href="https://wa.me/32474990977" target="_blank" rel="noopener">WhatsApp</a></div>
+  <p>Stationsstraat 167, 9250 Waasmunster<br>Ma t/m vr 08:00–20:00<br>Za en zo 08:00–18:00 · op afspraak</p>
+</nav>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">RKN Studio</p>
+      <h1>Een interieur<br><em>dat van jou is.</em></h1>
+      <p class="lede">Maak jouw wagen persoonlijker en comfortabeler met aanpassingen op maat van jouw wensen.</p>
+      <div class="hero-cta">
+        <a class="btn btn-red" href="#afspraak">Vraag een prijs <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-ghost" href="#hoe">Zo werkt het</a>
+      </div>
+    </div>
+    <div class="hero-shot tall"><img src="/img/studio-sterrenhemel.jpg" alt="Sterrenhemel met gekleurde lichtjes in het dak van een wagen, boven witte sportstoelen" fetchpriority="high" width="1080" height="1620"></div>
+  </div>
+</section>
+<section class="offer light" id="hoe">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow">Wat wij doen</p>
+      <h2 class="h2" style="margin-top:18px">Kies wat bij jou past.</h2>
+      <div class="opts">
+        <div class="opt"><h3>Sfeerverlichting</h3><p>Sfeerverlichting in de kleur die jij kiest.</p></div>
+        <div class="opt"><h3>Sterrenhemel</h3><p>Een sterrenhemel in het dak van je wagen.</p></div>
+        <div class="opt"><h3>Sportstuur</h3><p>Een sportstuur en andere afwerking naar jouw smaak.</p></div>
+        <div class="opt"><h3>Apple CarPlay en Android Auto</h3><p>Je gsm gekoppeld aan het scherm van je wagen.</p></div>
+      </div>
+      <p class="pricenote">Elke aanpassing is maatwerk. Vertel ons wat je wil, dan krijg je een prijs voor jouw wagen.</p>
+    </div>
+    <div class="vidbox"><video src="/vid/studio.mp4" poster="/vid/studio.jpg" controls playsinline preload="none" aria-label="Video over RKN Studio"></video></div>
+  </div>
+</section>
+<section class="book" id="afspraak">
+  <div class="wrap book-grid">
+    <div>
+      <p class="eyebrow">Contact</p>
+      <h2>Jouw wagen,<br><em>jouw stijl.</em></h2>
+      <p class="lede">Laat ons via WhatsApp of telefoon weten wat je wil. Wij bekijken samen wat mogelijk is.</p>
+      <div class="book-cta">
+        <a class="btn btn-red" href="https://wa.me/32474990977?text=Hallo%20RKN%20Studio%2C%20ik%20heb%20interesse%20in%20een%20aanpassing%20aan%20mijn%20wagen%3A%20" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z"/><path d="M9 9.5c.3 2.3 2.2 4.2 4.5 4.5l1-1.3 2 .8-.4 1.8c-3.8.2-7.5-3.5-7.3-7.3l1.8-.4.8 2z"/></svg>Stuur ons een WhatsApp</a>
+        <a class="btn btn-ghost" href="tel:+32474990977">Bel ons</a>
+      </div>
+    </div>
+    <div class="cards">
+      <div class="cbox"><span>Telefoon en WhatsApp</span><b class="sel">+32 474 99 09 77</b><button class="copy" type="button" data-copy="+32 474 99 09 77">Kopieer nummer</button></div>
+      <div class="cbox"><span>Openingsuren</span><b><i>Maandag t/m vrijdag:</i> 08:00–20:00<br><i>Zaterdag en zondag:</i> 08:00–18:00</b><small>Enkel op afspraak</small></div>
+      <div class="cbox"><span>Adres</span><b>Stationsstraat 167<br>9250 Waasmunster</b><a class="copy" style="text-decoration:none" href="https://www.google.com/maps/search/?api=1&amp;query=Stationsstraat+167+9250+Waasmunster" target="_blank" rel="noopener">Routebeschrijving</a></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="RKN Motors, naar de homepage"><span class="lk"><span class="wm">R<span class="k">K</span>N</span><small>Motors</small></span></a>
+    <nav><a href="/#stock">Stock</a><a href="/import/">Import</a><a href="/consult/">Consult</a><a href="/detailing/">Detailing</a><a href="/studio/">Studio</a><a href="/#contact">Contact</a></nav>
+    <span>RKN Motors CommV · Stationsstraat 167, 9250 Waasmunster · BE 1006.001.549</span>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function () {
+  var nav = document.getElementById('nav');
+  var onScroll = function () { nav.classList.toggle('solid', window.scrollY > 20); };
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  var btn = document.getElementById('menuBtn');
+  var setMenu = function (open) {
+    document.documentElement.classList.toggle('menu-open', open);
+    btn.setAttribute('aria-expanded', String(open));
+    btn.setAttribute('aria-label', open ? 'Menu sluiten' : 'Menu openen');
+  };
+  btn.addEventListener('click', function () { setMenu(!document.documentElement.classList.contains('menu-open')); });
+  document.querySelectorAll('#mnav a').forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+
+  // WhatsApp-bericht met de gekozen behandeling
+  var select = document.getElementById('keuze');
+  var wa = document.getElementById('waBtn');
+  var updateWa = function () {
+    var v = select.value;
+    var text = v
+      ? 'Hallo RKN Detailing, ik wil graag een afspraak maken voor: ' + v + '. Mijn wagen is een '
+      : 'Hallo RKN Detailing, ik wil graag advies over een detailingbehandeling voor mijn wagen. Mijn wagen is een ';
+    wa.href = 'https://wa.me/32474990977?text=' + encodeURIComponent(text);
+  };
+  if (select && wa) { select.addEventListener('change', updateWa); updateWa(); }
+  document.querySelectorAll('[data-pick]').forEach(function (a) {
+    a.addEventListener('click', function () { select.value = a.getAttribute('data-pick'); updateWa(); });
+  });
+
+  // Kopiëren
+  var toast = document.getElementById('toast');
+  var show = function (msg) { toast.textContent = msg; toast.classList.add('show'); setTimeout(function () { toast.classList.remove('show'); }, 1800); };
+  document.querySelectorAll('[data-copy]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var v = b.getAttribute('data-copy');
+      if (navigator.clipboard) navigator.clipboard.writeText(v).then(function () { show('Nummer gekopieerd'); }, function () { show(v); });
+      else show(v);
+    });
+  });
+})();
+</script>
+</body>
+</html>

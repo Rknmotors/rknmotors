@@ -86,6 +86,48 @@ h1,h2,h3{font-family:var(--display);font-weight:800;font-stretch:112%;letter-spa
 .mnav .mnav-cta .btn{flex:1 1 auto;justify-content:center}
 .mnav p{color:var(--chrome);font-size:14px;margin-top:auto}
 
+
+/* uitklapmenu Diensten */
+.nav li.has-sub{position:relative}
+.nav .has-sub>a{display:inline-flex;align-items:center;gap:6px}
+.nav .has-sub .chev{width:14px;height:14px;transition:transform .3s var(--ease)}
+.nav .has-sub:hover .chev,.nav .has-sub:focus-within .chev{transform:rotate(180deg)}
+.nav .sub{position:absolute;left:-16px;top:100%;padding-top:16px;display:none;z-index:60}
+.nav .has-sub:hover .sub,.nav .has-sub:focus-within .sub{display:block}
+.nav .sub ul{display:grid;gap:2px;background:rgba(18,19,20,.97);border:1px solid var(--line);border-radius:14px;padding:8px;min-width:270px;box-shadow:0 24px 50px rgba(0,0,0,.5)}
+.nav .sub a{display:flex;flex-direction:column;gap:2px;padding:10px 12px;border-radius:9px;font-size:16px;font-weight:600;color:#fff}
+.nav .sub a::after{display:none}
+.nav .sub a:hover,.nav .sub a[aria-current]{background:var(--asphalt-3)}
+.nav .sub a[aria-current]{box-shadow:inset 3px 0 0 var(--red)}
+.nav .sub small{font-size:12.5px;font-weight:400;color:var(--chrome)}
+.mnav ul.msub{padding:2px 0 8px 14px;border-bottom:1px solid var(--line)}
+.mnav ul.msub a{font-family:var(--body);font-weight:600;font-stretch:100%;font-size:19px;letter-spacing:0;padding:10px 0;border-bottom:0;color:#d6d7da}
+.mnav ul.msub a::after{font-size:.8em}
+
+/* dienstpagina's */
+.hero-shot.tall{aspect-ratio:9/16;max-height:640px;width:auto;justify-self:end;background:#000}
+.hero-shot.tall img,.hero-shot video{width:100%;height:100%;object-fit:cover;display:block}
+.steps{list-style:none;margin:clamp(28px,4vw,48px) 0 0;padding:0;display:grid;grid-template-columns:repeat(var(--n,4),minmax(0,1fr));gap:clamp(14px,2vw,24px)}
+.steps li{border-top:2px solid var(--asphalt);padding-top:18px;min-width:0}
+.steps .n{font-family:var(--mono);font-size:13px;letter-spacing:.12em;color:var(--ink-y)}
+.steps h3{font-size:clamp(22px,2vw,28px);letter-spacing:-.02em;margin-top:10px}
+.steps p{margin:10px 0 0;color:#4b4d52;font-size:16px;max-width:34ch}
+.opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(12px,1.6vw,18px);margin-top:clamp(28px,4vw,48px)}
+.opt{background:#fff;border:1px solid #dcdad3;border-radius:16px;padding:22px;min-width:0}
+.opt h3{font-size:clamp(21px,1.8vw,26px);letter-spacing:-.02em}
+.opt p{margin:8px 0 0;color:#4b4d52;font-size:16px}
+.split{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:start}
+.vidbox{border-radius:18px;overflow:hidden;background:#000;aspect-ratio:9/16;max-height:620px;max-width:100%;justify-self:end;box-shadow:0 30px 60px rgba(18,19,20,.25)}
+.vidbox video{width:100%;height:100%;object-fit:cover;display:block}
+.pricenote{margin:22px 0 0;font-size:15px;color:#4b4d52;max-width:70ch}
+@media (max-width:900px){
+  .hero-shot.tall{justify-self:start;max-height:520px}
+  .steps{grid-template-columns:1fr 1fr}
+  .split{grid-template-columns:1fr}
+  .vidbox{justify-self:start;max-height:520px}
+}
+@media (max-width:620px){.steps,.opts{grid-template-columns:1fr}}
+
 /* hero */
 .hero{position:relative;padding-block:clamp(120px,16vh,170px) clamp(40px,6vw,72px);overflow:hidden}
 .hero .wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(28px,4vw,64px);align-items:end}
@@ -208,7 +250,11 @@ footer a:hover{color:#fff}
     <a class="logo" href="/" aria-label="RKN Motors, naar de homepage"><span class="lk"><span class="wm">R<span class="k">K</span>N</span><small>Motors</small></span></a>
     <ul>
       <li><a href="/#stock">Stock</a></li>
-      <li><a href="/#diensten">Diensten</a></li>
+      <li class="has-sub"><a href="/#diensten">Diensten <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a><div class="sub"><ul><li><a href="/import/">RKN Import<small>Jouw wagen uit het buitenland</small></a></li><li><a href="/consult/">RKN Consult<small>Advies bij je aankoop</small></a></li><li><a href="/detailing/" aria-current="page">RKN Detailing<small>Reiniging en verzorging</small></a></li><li><a href="/studio/">RKN Studio<small>Interieur op maat</small></a></li></ul></div></li>
+      <li><a href="/#werkwijze">Hoe wij werken</a></li>
+      <li><a href="/#reviews">Reviews</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul></div></li>
       <li><a href="/#werkwijze">Hoe wij werken</a></li>
       <li><a href="/#reviews">Reviews</a></li>
       <li><a href="/#contact">Contact</a></li>
@@ -219,7 +265,11 @@ footer a:hover{color:#fff}
 <nav class="mnav" id="mnav" aria-label="Menu">
   <ul>
     <li><a href="/#stock">Stock</a></li>
-    <li><a href="/#diensten">Diensten</a></li>
+    <li><a href="/#diensten">Diensten</a><ul class="msub"><li><a href="/import/">RKN Import</a></li><li><a href="/consult/">RKN Consult</a></li><li><a href="/detailing/">RKN Detailing</a></li><li><a href="/studio/">RKN Studio</a></li></ul></li>
+    <li><a href="/#werkwijze">Hoe wij werken</a></li>
+    <li><a href="/#reviews">Reviews</a></li>
+    <li><a href="/#contact">Contact</a></li>
+  </ul></li>
     <li><a href="/#werkwijze">Hoe wij werken</a></li>
     <li><a href="/#reviews">Reviews</a></li>
     <li><a href="/#contact">Contact</a></li>
@@ -336,7 +386,7 @@ footer a:hover{color:#fff}
 <footer>
   <div class="wrap">
     <a class="logo" href="/" aria-label="RKN Motors, naar de homepage"><span class="lk"><span class="wm">R<span class="k">K</span>N</span><small>Motors</small></span></a>
-    <nav><a href="/#stock">Stock</a><a href="/#diensten">Diensten</a><a href="/detailing/">Detailing</a><a href="/#contact">Contact</a></nav>
+    <nav><a href="/#stock">Stock</a><a href="/import/">Import</a><a href="/consult/">Consult</a><a href="/detailing/">Detailing</a><a href="/studio/">Studio</a><a href="/#contact">Contact</a></nav>
     <span>RKN Motors CommV · Stationsstraat 167, 9250 Waasmunster · BE 1006.001.549</span>
   </div>
 </footer>
@@ -368,8 +418,7 @@ footer a:hover{color:#fff}
       : 'Hallo RKN Detailing, ik wil graag advies over een detailingbehandeling voor mijn wagen. Mijn wagen is een ';
     wa.href = 'https://wa.me/32474990977?text=' + encodeURIComponent(text);
   };
-  select.addEventListener('change', updateWa);
-  updateWa();
+  if (select && wa) { select.addEventListener('change', updateWa); updateWa(); }
   document.querySelectorAll('[data-pick]').forEach(function (a) {
     a.addEventListener('click', function () { select.value = a.getAttribute('data-pick'); updateWa(); });
   });
