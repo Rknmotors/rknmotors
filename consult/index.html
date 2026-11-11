@@ -87,22 +87,31 @@ h1,h2,h3{font-family:var(--display);font-weight:800;font-stretch:112%;letter-spa
 .mnav p{color:var(--chrome);font-size:14px;margin-top:auto}
 
 
-/* uitklapmenu Diensten */
-.nav li.has-sub{position:relative}
+/* uitklapmenu Diensten (kolommen met behandelingen) */
+.nav .wrap{position:relative}
+.nav .wrap>ul{align-self:stretch;align-items:center}
+.nav li.has-sub{position:static;align-self:stretch;display:flex;align-items:center}
 .nav .has-sub>a{display:inline-flex;align-items:center;gap:6px}
 .nav .has-sub .chev{width:14px;height:14px;transition:transform .3s var(--ease)}
 .nav .has-sub:hover .chev,.nav .has-sub:focus-within .chev{transform:rotate(180deg)}
-.nav .sub{position:absolute;left:-16px;top:100%;padding-top:16px;display:none;z-index:60}
+.nav .sub{position:absolute;left:var(--gutter);right:var(--gutter);top:100%;display:none;z-index:60}
 .nav .has-sub:hover .sub,.nav .has-sub:focus-within .sub{display:block}
-.nav .sub ul{display:grid;gap:2px;background:rgba(18,19,20,.97);border:1px solid var(--line);border-radius:14px;padding:8px;min-width:270px;box-shadow:0 24px 50px rgba(0,0,0,.5)}
-.nav .sub a{display:flex;flex-direction:column;gap:2px;padding:10px 12px;border-radius:9px;font-size:16px;font-weight:600;color:#fff}
-.nav .sub a::after{display:none}
-.nav .sub a:hover,.nav .sub a[aria-current]{background:var(--asphalt-3)}
-.nav .sub a[aria-current]{box-shadow:inset 3px 0 0 var(--red)}
-.nav .sub small{font-size:12.5px;font-weight:400;color:var(--chrome)}
+.nav .mega{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px 18px;max-width:940px;margin-left:auto;margin-right:auto;background:rgba(18,19,20,.97);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:16px;padding:14px;box-shadow:0 30px 60px rgba(0,0,0,.55)}
+.nav .mcol{display:grid;align-content:start;gap:2px;min-width:0}
+.nav .mega a{display:flex;flex-direction:column;gap:2px;border-radius:9px;text-decoration:none}
+.nav .mega a::after{display:none}
+.nav .mega a.mh{padding:10px 12px;font-size:17px;font-weight:700;color:#fff}
+.nav .mega a.mh small{font-size:12.5px;font-weight:400;color:var(--chrome)}
+.nav .mega a.ms{position:relative;padding:7px 12px 7px 28px;font-size:15px;font-weight:500;color:#cfd0d3}
+.nav .mega a.ms::before{content:"";position:absolute;left:14px;top:50%;width:5px;height:5px;margin-top:-2px;border-radius:50%;background:var(--red)}
+.nav .mega a:hover,.nav .mega a[aria-current]{background:var(--asphalt-3);color:#fff}
+.nav .mega a[aria-current]{box-shadow:inset 3px 0 0 var(--red)}
 .mnav ul.msub{padding:2px 0 8px 14px;border-bottom:1px solid var(--line)}
-.mnav ul.msub a{font-family:var(--body);font-weight:600;font-stretch:100%;font-size:19px;letter-spacing:0;padding:10px 0;border-bottom:0;color:#d6d7da}
+.mnav ul.msub a{font-family:var(--body);font-weight:600;font-stretch:100%;font-size:19px;letter-spacing:0;padding:10px 0;border-bottom:0;color:#e4e5e7}
 .mnav ul.msub a::after{font-size:.8em}
+.mnav ul.msub2{padding:0 0 6px 14px;border-left:2px solid var(--line);margin-left:2px}
+.mnav ul.msub2 a{font-size:15.5px;font-weight:500;padding:7px 0;color:var(--chrome)}
+.mnav ul.msub2 a::after{content:""}
 
 /* dienstpagina's */
 .hero.full{position:relative;min-height:min(92vh,860px);display:flex;align-items:flex-end;padding-block:150px clamp(48px,7vw,96px);overflow:hidden}
@@ -111,34 +120,63 @@ h1,h2,h3{font-family:var(--display);font-weight:800;font-stretch:112%;letter-spa
 .hero.full::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(18,19,20,.94) 0%,rgba(18,19,20,.8) 36%,rgba(18,19,20,.3) 70%,rgba(18,19,20,.12) 100%),linear-gradient(0deg,var(--asphalt) 0%,rgba(18,19,20,0) 32%),linear-gradient(180deg,rgba(18,19,20,.75) 0%,rgba(18,19,20,0) 24%)}
 .hero.full .wrap{position:relative;z-index:2;display:block}
 .hero.full .hero-txt{max-width:780px}
+.hero.full h1{font-size:clamp(44px,6.6vw,108px)}
 .hero.full .lede{color:#dcdde0}
 .hero.full .facts{color:#e4e5e7}
+.crumbs{display:flex;flex-wrap:wrap;gap:6px 10px;margin:0 0 16px;font-size:14px;color:var(--chrome)}
+.crumbs a{color:#e4e5e7;text-decoration:none}.crumbs a:hover{color:var(--red-l)}
+.hero-price{display:flex;align-items:baseline;gap:14px;margin-top:22px;flex-wrap:wrap}
+.hero-price b{font-family:var(--display);font-weight:800;font-stretch:112%;font-size:clamp(38px,4vw,56px);letter-spacing:-.03em;line-height:1;color:#fff}
+.hero-price s{color:var(--chrome);font-size:18px}
+.badge{display:inline-block;font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;background:var(--asphalt);color:var(--red-l);padding:5px 10px;border-radius:999px}
+.hero-price .badge{background:var(--red);color:var(--on-y);align-self:center}
 @media (max-width:900px){
   .hero.full{min-height:max(620px,86svh);padding-top:120px}
   .hero.full::after{background:linear-gradient(0deg,rgba(18,19,20,.97) 0%,rgba(18,19,20,.85) 45%,rgba(18,19,20,.35) 100%)}
 }
-.hero-shot.tall{aspect-ratio:9/16;max-height:640px;width:auto;justify-self:end;background:#000}
-.hero-shot.tall img,.hero-shot video{width:100%;height:100%;object-fit:cover;display:block}
 .steps{list-style:none;margin:clamp(28px,4vw,48px) 0 0;padding:0;display:grid;grid-template-columns:repeat(var(--n,4),minmax(0,1fr));gap:clamp(14px,2vw,24px)}
 .steps li{border-top:2px solid var(--asphalt);padding-top:18px;min-width:0}
 .steps .n{font-family:var(--mono);font-size:13px;letter-spacing:.12em;color:var(--ink-y)}
 .steps h3{font-size:clamp(22px,2vw,28px);letter-spacing:-.02em;margin-top:10px}
 .steps p{margin:10px 0 0;color:#4b4d52;font-size:16px;max-width:34ch}
 .opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(12px,1.6vw,18px);margin-top:clamp(28px,4vw,48px)}
-.opt{background:#fff;border:1px solid #dcdad3;border-radius:16px;padding:22px;min-width:0}
+.opt{display:block;background:#fff;border:1px solid #dcdad3;border-radius:16px;padding:22px;min-width:0;text-decoration:none;color:inherit;transition:border-color .3s,transform .4s var(--ease)}
+a.opt:hover{border-color:var(--red);transform:translateY(-3px)}
 .opt h3{font-size:clamp(21px,1.8vw,26px);letter-spacing:-.02em}
 .opt p{margin:8px 0 0;color:#4b4d52;font-size:16px}
+.opt .go{display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-weight:600;font-size:14px;color:var(--ink-y)}
+.opt .go svg{width:16px;height:16px}
 .split{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:start}
 .vidbox{border-radius:18px;overflow:hidden;background:#000;aspect-ratio:9/16;max-height:620px;max-width:100%;justify-self:end;box-shadow:0 30px 60px rgba(18,19,20,.25)}
 .vidbox video{width:100%;height:100%;object-fit:cover;display:block}
 .pricenote{margin:22px 0 0;font-size:15px;color:#4b4d52;max-width:70ch}
+.checks{list-style:none;margin:clamp(24px,3vw,36px) 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 24px}
+.checks li{display:flex;gap:12px;align-items:flex-start;font-size:17px;padding-bottom:12px;border-bottom:1px solid rgba(18,19,20,.12)}
+.checks svg{flex:none;width:22px;height:22px;padding:3px;border-radius:50%;background:var(--red);color:var(--on-y);margin-top:1px}
+.pcard{background:var(--asphalt);color:var(--white);border-radius:20px;padding:clamp(22px,2.6vw,32px);display:grid;gap:14px;align-content:start;box-shadow:0 30px 60px rgba(18,19,20,.2)}
+.pcard .lbl{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--chrome)}
+.pcard .big{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.pcard .big b{font-family:var(--display);font-weight:800;font-stretch:112%;font-size:clamp(44px,4.4vw,64px);letter-spacing:-.03em;line-height:1}
+.pcard .big s{color:var(--chrome);font-size:18px}
+.pcard p{margin:0;color:#c9cacd;font-size:15px}
+.pcard .btn{justify-content:center}
+.others{padding-block:clamp(56px,8vw,100px);background:var(--paper-2);color:var(--asphalt)}
+.others .eyebrow{color:var(--chrome-d)}
+.ocards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:clamp(22px,3vw,34px)}
+.ocard{display:flex;flex-direction:column;gap:8px;background:#fff;border:1px solid #d6d4cd;border-radius:14px;padding:18px;text-decoration:none;color:inherit;transition:border-color .3s,transform .4s var(--ease);min-width:0}
+.ocard:hover{border-color:var(--red);transform:translateY(-3px)}
+.ocard b{font-family:var(--display);font-weight:800;font-stretch:108%;font-size:19px;letter-spacing:-.01em;line-height:1.1}
+.ocard span{font-size:14px;color:#4b4d52;font-variant-numeric:tabular-nums}
+.ocard span s{color:var(--chrome-d);margin-right:6px}
+.item .moreinfo{display:inline-flex;align-items:center;gap:6px;margin-top:10px;font-weight:600;font-size:14px;color:var(--ink-y);text-decoration:none}
+.item .moreinfo:hover{text-decoration:underline}
+.item .moreinfo svg{width:15px;height:15px}
 @media (max-width:900px){
-  .hero-shot.tall{justify-self:start;max-height:520px}
   .steps{grid-template-columns:1fr 1fr}
   .split{grid-template-columns:1fr}
   .vidbox{justify-self:start;max-height:520px}
 }
-@media (max-width:620px){.steps,.opts{grid-template-columns:1fr}}
+@media (max-width:620px){.steps,.opts,.checks{grid-template-columns:1fr}}
 
 /* hero */
 .hero{position:relative;padding-block:clamp(120px,16vh,170px) clamp(40px,6vw,72px);overflow:hidden}
@@ -262,7 +300,7 @@ footer a:hover{color:#fff}
     <a class="logo" href="/" aria-label="RKN Motors, naar de homepage"><span class="lk"><span class="wm">R<span class="k">K</span>N</span><small>Motors</small></span></a>
     <ul>
       <li><a href="/#stock">Stock</a></li>
-      <li class="has-sub"><a href="/#diensten">Diensten <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a><div class="sub"><ul><li><a href="/import/">RKN Import<small>Jouw wagen uit het buitenland</small></a></li><li><a href="/consult/" aria-current="page">RKN Consult<small>Advies bij je aankoop</small></a></li><li><a href="/detailing/">RKN Detailing<small>Reiniging en verzorging</small></a></li><li><a href="/studio/">RKN Studio<small>Interieur op maat</small></a></li></ul></div></li>
+      <li class="has-sub"><a href="/#diensten">Diensten <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a><div class="sub"><div class="mega"><div class="mcol"><a class="mh" href="/import/">RKN Import<small>Jouw wagen uit het buitenland</small></a><a class="mh" href="/consult/" aria-current="page">RKN Consult<small>Advies bij je aankoop</small></a></div><div class="mcol"><a class="mh" href="/detailing/">RKN Detailing<small>Reiniging en verzorging</small></a><a class="ms" href="/detailing/premium/">Premium + koplampen</a><a class="ms" href="/detailing/complete/">Complete dieptereiniging</a><a class="ms" href="/detailing/interieur/">Dieptereiniging interieur</a><a class="ms" href="/detailing/exterieur/">Exterieurreiniging</a><a class="ms" href="/detailing/koplampen/">Koplamprestauratie</a></div><div class="mcol"><a class="mh" href="/studio/">RKN Studio<small>Interieur op maat</small></a><a class="ms" href="/studio/sfeerverlichting/">Sfeerverlichting</a><a class="ms" href="/studio/sterrenhemel/">Sterrenhemel</a><a class="ms" href="/studio/sportstuur/">Sportstuur</a><a class="ms" href="/studio/carplay/">CarPlay en Android Auto</a></div></div></div></li>
       <li><a href="/#werkwijze">Hoe wij werken</a></li>
       <li><a href="/#reviews">Reviews</a></li>
       <li><a href="/#contact">Contact</a></li>
@@ -273,7 +311,7 @@ footer a:hover{color:#fff}
 <nav class="mnav" id="mnav" aria-label="Menu">
   <ul>
     <li><a href="/#stock">Stock</a></li>
-    <li><a href="/#diensten">Diensten</a><ul class="msub"><li><a href="/import/">RKN Import</a></li><li><a href="/consult/">RKN Consult</a></li><li><a href="/detailing/">RKN Detailing</a></li><li><a href="/studio/">RKN Studio</a></li></ul></li>
+    <li><a href="/#diensten">Diensten</a><ul class="msub"><li><a href="/import/">RKN Import</a></li><li><a href="/consult/">RKN Consult</a></li><li><a href="/detailing/">RKN Detailing</a><ul class="msub2"><li><a href="/detailing/premium/">Premium + koplampen</a></li><li><a href="/detailing/complete/">Complete dieptereiniging</a></li><li><a href="/detailing/interieur/">Dieptereiniging interieur</a></li><li><a href="/detailing/exterieur/">Exterieurreiniging</a></li><li><a href="/detailing/koplampen/">Koplamprestauratie</a></li></ul></li><li><a href="/studio/">RKN Studio</a><ul class="msub2"><li><a href="/studio/sfeerverlichting/">Sfeerverlichting</a></li><li><a href="/studio/sterrenhemel/">Sterrenhemel</a></li><li><a href="/studio/sportstuur/">Sportstuur</a></li><li><a href="/studio/carplay/">CarPlay en Android Auto</a></li></ul></li></ul></li>
     <li><a href="/#werkwijze">Hoe wij werken</a></li>
     <li><a href="/#reviews">Reviews</a></li>
     <li><a href="/#contact">Contact</a></li>
