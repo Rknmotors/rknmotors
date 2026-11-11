@@ -111,6 +111,9 @@ h1,h2,h3{font-family:var(--display);font-weight:800;font-stretch:112%;letter-spa
 .item p{margin:0;color:#4b4d52;font-size:16px}
 .item ul{margin:10px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px 14px;font-size:14px;color:#3a3c40}
 .item ul li{display:flex;align-items:center;gap:6px}
+.item ul.full{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 18px}
+@media (max-width:420px){.item ul.full{grid-template-columns:1fr}}
+.item ul.full li{align-items:flex-start}.item ul.full li::before{flex:none;margin-top:.55em}
 .item ul li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--ink-y)}
 .buy{display:flex;align-items:center;gap:18px;justify-content:flex-end}
 .price{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
@@ -258,7 +261,7 @@ footer a:hover{color:#fff}
     <div class="list">
       <article class="item">
         <div><span class="badge">Promo</span><h3>Premium dieptereiniging + koplamprestauratie</h3></div>
-        <div><p>Grondige binnen- en buitenreiniging, inclusief koplamprestauratie.</p><ul><li>Interieur</li><li>Exterieur</li><li>Koplampen</li></ul></div>
+        <div><p>Onze meest complete behandeling: je wagen grondig gereinigd en beschermd, binnen en buiten.</p><ul class="full"><li>Dieptereiniging interieur</li><li>Dieptereiniging exterieur</li><li>Waxcoating</li><li>Koplamprestauratie</li><li>Tyre shine</li><li>Vlekken verwijderen</li><li>Kunststof reinigen en laten glanzen</li><li>Velgen reinigen</li><li>Ruiten binnen en buiten</li><li>Stofzuigen, ook de koffer</li></ul></div>
         <div class="buy"><div class="price"><s>€ 350</s><b>€ 199</b></div><a class="btn btn-red" href="#afspraak" data-pick="Premium dieptereiniging + koplamprestauratie">Kies</a></div>
       </article>
       <article class="item">
