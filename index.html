@@ -63,6 +63,12 @@ section{position:relative}
 .logo .wm{font-family:var(--display);font-weight:900;font-stretch:125%;font-size:42px;letter-spacing:-.04em;display:inline-flex;align-items:center}
 .logo .wm .k{color:var(--red-l)}
 .logo small{font-family:var(--mono);font-size:15px;font-weight:500;letter-spacing:.32em;color:var(--red-l);text-transform:uppercase;padding-left:14px;border-left:1px solid var(--line)}
+.logo2{gap:14px}
+.logo2 .lk{display:flex;flex-direction:column;gap:6px}
+.logo2 .wm{font-size:44px;line-height:.82;letter-spacing:-.025em;transform:skewX(-8deg);transform-origin:left bottom}
+.logo2 .wm .k{color:var(--red)}
+.logo2 small{font-family:var(--display);font-weight:600;font-stretch:125%;font-size:11px;letter-spacing:.62em;color:var(--white);border:0;padding:0 0 0 2px;display:flex;align-items:center;gap:6px}
+@media (max-width:620px){.logo2 .wm{font-size:34px}.nav .logo.logo2 small{display:flex;font-size:8.5px;letter-spacing:.6em;padding-left:1px}}
 .nav ul{display:flex;gap:40px;list-style:none;margin:0;padding:0}
 .nav ul a{text-decoration:none;font-size:20px;font-weight:500;color:#cfd0d3;position:relative}
 .nav ul a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
@@ -830,7 +836,7 @@ html,body{max-width:100%;overflow-x:hidden}
 
 <header class="nav" id="nav">
   <div class="wrap">
-    <a class="logo" href="#top" aria-label="RKN Motors, naar boven"><span class="wm">R<span class="k">K</span>N</span><small>Motors</small></a>
+    <a class="logo logo2" href="#top" aria-label="RKN Motors, naar boven"><span class="lk"><span class="wm">R<span class="k">K</span>N</span><small>Motors</small></span></a>
     <ul>
       <li><a href="#stock">Stock</a></li>
       <li><a href="#diensten">Diensten</a></li>
@@ -992,7 +998,7 @@ html,body{max-width:100%;overflow-x:hidden}
 </main>
 <footer>
   <div class="wrap">
-    <a class="logo" href="#top"><span class="wm" style="font-size:32px">R<span class="k">K</span>N</span><small>Motors</small></a>
+    <a class="logo logo2" href="#top" aria-label="RKN Motors, naar boven"><span class="lk"><span class="wm">R<span class="k">K</span>N</span><small>Motors</small></span></a>
     <nav><a href="#stock">Stock</a><a href="#diensten">Diensten</a><a href="#werkwijze">Hoe wij werken</a><a href="#contact">Contact</a></nav>
     <span>RKN Motors CommV · Stationsstraat 167, 9250 Waasmunster · BE 1006.001.549</span>
   </div>
