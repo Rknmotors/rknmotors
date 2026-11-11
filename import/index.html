@@ -105,6 +105,18 @@ h1,h2,h3{font-family:var(--display);font-weight:800;font-stretch:112%;letter-spa
 .mnav ul.msub a::after{font-size:.8em}
 
 /* dienstpagina's */
+.hero.full{position:relative;min-height:min(92vh,860px);display:flex;align-items:flex-end;padding-block:150px clamp(48px,7vw,96px);overflow:hidden}
+.hero.full .hero-bg{position:absolute;inset:0;margin:0;z-index:0}
+.hero.full .hero-bg img{width:100%;height:100%;max-width:none;object-fit:cover}
+.hero.full::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(18,19,20,.94) 0%,rgba(18,19,20,.8) 36%,rgba(18,19,20,.3) 70%,rgba(18,19,20,.12) 100%),linear-gradient(0deg,var(--asphalt) 0%,rgba(18,19,20,0) 32%),linear-gradient(180deg,rgba(18,19,20,.75) 0%,rgba(18,19,20,0) 24%)}
+.hero.full .wrap{position:relative;z-index:2;display:block}
+.hero.full .hero-txt{max-width:780px}
+.hero.full .lede{color:#dcdde0}
+.hero.full .facts{color:#e4e5e7}
+@media (max-width:900px){
+  .hero.full{min-height:max(620px,86svh);padding-top:120px}
+  .hero.full::after{background:linear-gradient(0deg,rgba(18,19,20,.97) 0%,rgba(18,19,20,.85) 45%,rgba(18,19,20,.35) 100%)}
+}
 .hero-shot.tall{aspect-ratio:9/16;max-height:640px;width:auto;justify-self:end;background:#000}
 .hero-shot.tall img,.hero-shot video{width:100%;height:100%;object-fit:cover;display:block}
 .steps{list-style:none;margin:clamp(28px,4vw,48px) 0 0;padding:0;display:grid;grid-template-columns:repeat(var(--n,4),minmax(0,1fr));gap:clamp(14px,2vw,24px)}
@@ -254,10 +266,6 @@ footer a:hover{color:#fff}
       <li><a href="/#werkwijze">Hoe wij werken</a></li>
       <li><a href="/#reviews">Reviews</a></li>
       <li><a href="/#contact">Contact</a></li>
-    </ul></div></li>
-      <li><a href="/#werkwijze">Hoe wij werken</a></li>
-      <li><a href="/#reviews">Reviews</a></li>
-      <li><a href="/#contact">Contact</a></li>
     </ul>
     <div class="nav-r"><a class="btn btn-red" href="#afspraak">Plan een afspraak</a><button class="menu-btn" id="menuBtn" aria-label="Menu openen" aria-expanded="false" aria-controls="mnav"><span></span></button></div>
   </div>
@@ -269,36 +277,33 @@ footer a:hover{color:#fff}
     <li><a href="/#werkwijze">Hoe wij werken</a></li>
     <li><a href="/#reviews">Reviews</a></li>
     <li><a href="/#contact">Contact</a></li>
-  </ul></li>
-    <li><a href="/#werkwijze">Hoe wij werken</a></li>
-    <li><a href="/#reviews">Reviews</a></li>
-    <li><a href="/#contact">Contact</a></li>
   </ul>
   <div class="mnav-cta"><a class="btn btn-red" href="tel:+32474990977">Bel ons</a><a class="btn btn-ghost" href="https://wa.me/32474990977" target="_blank" rel="noopener">WhatsApp</a></div>
   <p>Stationsstraat 167, 9250 Waasmunster<br>Ma t/m vr 08:00–20:00<br>Za en zo 08:00–18:00 · op afspraak</p>
 </nav>
 
 <main>
-<section class="hero">
+<section class="hero full">
+  <figure class="hero-bg"><img src="/img/rkn-pand.jpg" alt="Het pand van RKN Motors in Waasmunster met wagens op de parking" fetchpriority="high" style="object-position:50% 60%"></figure>
   <div class="wrap">
-    <div>
+    <div class="hero-txt">
       <p class="eyebrow">RKN Import</p>
       <h1>Jouw droomwagen<br><em>uit het buitenland.</em></h1>
       <p class="lede">Wagen gezien in Duitsland, Nederland, Frankrijk of Italië? Met RKN Import wordt een wagen naar België importeren eenvoudig. Wij begeleiden je bij het volledige proces, van A tot Z.</p>
-      <div class="hero-cta">
-        <a class="btn btn-red" href="#afspraak">Vraag een prijs <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="btn btn-ghost" href="#hoe">Zo werkt het</a>
-      </div>
+      <div class="hero-cta"><a class="btn btn-red" href="#afspraak">Vraag een prijs <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn-ghost" href="#hoe">Zo werkt het</a></div>
+      <div class="facts"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg>Duitsland, Nederland, Frankrijk, Italië</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg>Papierwerk inbegrepen</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg>Begeleiding van A tot Z</span></div>
     </div>
-    <div class="hero-shot tall"><video src="/vid/import.mp4" poster="/vid/import.jpg" controls playsinline preload="none" aria-label="Video over RKN Import"></video></div>
   </div>
 </section>
 <section class="offer light" id="hoe">
-  <div class="wrap">
+  <div class="wrap split">
+    <div>
     <p class="eyebrow">Zo werkt het</p>
     <h2 class="h2" style="margin-top:18px">Van advertentie tot in België.</h2>
-    <ol class="steps" style="--n:4"><li><span class="n">01</span><h3>Stuur ons de wagen</h3><p>Bezorg ons de advertentie of vertel ons welke wagen je zoekt.</p></li><li><span class="n">02</span><h3>Wij onderhandelen</h3><p>Wij nemen contact op met de verkoper en onderhandelen over de prijs.</p></li><li><span class="n">03</span><h3>Inspectie ter plaatse</h3><p>We bekijken de wagen ter plaatse, voor je een beslissing neemt.</p></li><li><span class="n">04</span><h3>Papierwerk tot in België</h3><p>Wij regelen alle documenten tot de wagen hier klaar is.</p></li></ol>
+    <ol class="steps" style="--n:2"><li><span class="n">01</span><h3>Stuur ons de wagen</h3><p>Bezorg ons de advertentie of vertel ons welke wagen je zoekt.</p></li><li><span class="n">02</span><h3>Wij onderhandelen</h3><p>Wij nemen contact op met de verkoper en onderhandelen over de prijs.</p></li><li><span class="n">03</span><h3>Inspectie ter plaatse</h3><p>We bekijken de wagen ter plaatse, voor je een beslissing neemt.</p></li><li><span class="n">04</span><h3>Papierwerk tot in België</h3><p>Wij regelen alle documenten tot de wagen hier klaar is.</p></li></ol>
     <p class="pricenote">De prijs hangt af van het land en de wagen. Stuur ons de advertentie, dan krijg je een prijs voor jouw wagen.</p>
+    </div>
+    <div class="vidbox"><video src="/vid/import.mp4" poster="/vid/import.jpg" controls playsinline preload="none" aria-label="Video over RKN Import"></video></div>
   </div>
 </section>
 <section class="book" id="afspraak">

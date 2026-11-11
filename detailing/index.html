@@ -105,6 +105,18 @@ h1,h2,h3{font-family:var(--display);font-weight:800;font-stretch:112%;letter-spa
 .mnav ul.msub a::after{font-size:.8em}
 
 /* dienstpagina's */
+.hero.full{position:relative;min-height:min(92vh,860px);display:flex;align-items:flex-end;padding-block:150px clamp(48px,7vw,96px);overflow:hidden}
+.hero.full .hero-bg{position:absolute;inset:0;margin:0;z-index:0}
+.hero.full .hero-bg img{width:100%;height:100%;max-width:none;object-fit:cover}
+.hero.full::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(18,19,20,.94) 0%,rgba(18,19,20,.8) 36%,rgba(18,19,20,.3) 70%,rgba(18,19,20,.12) 100%),linear-gradient(0deg,var(--asphalt) 0%,rgba(18,19,20,0) 32%),linear-gradient(180deg,rgba(18,19,20,.75) 0%,rgba(18,19,20,0) 24%)}
+.hero.full .wrap{position:relative;z-index:2;display:block}
+.hero.full .hero-txt{max-width:780px}
+.hero.full .lede{color:#dcdde0}
+.hero.full .facts{color:#e4e5e7}
+@media (max-width:900px){
+  .hero.full{min-height:max(620px,86svh);padding-top:120px}
+  .hero.full::after{background:linear-gradient(0deg,rgba(18,19,20,.97) 0%,rgba(18,19,20,.85) 45%,rgba(18,19,20,.35) 100%)}
+}
 .hero-shot.tall{aspect-ratio:9/16;max-height:640px;width:auto;justify-self:end;background:#000}
 .hero-shot.tall img,.hero-shot video{width:100%;height:100%;object-fit:cover;display:block}
 .steps{list-style:none;margin:clamp(28px,4vw,48px) 0 0;padding:0;display:grid;grid-template-columns:repeat(var(--n,4),minmax(0,1fr));gap:clamp(14px,2vw,24px)}
@@ -254,10 +266,6 @@ footer a:hover{color:#fff}
       <li><a href="/#werkwijze">Hoe wij werken</a></li>
       <li><a href="/#reviews">Reviews</a></li>
       <li><a href="/#contact">Contact</a></li>
-    </ul></div></li>
-      <li><a href="/#werkwijze">Hoe wij werken</a></li>
-      <li><a href="/#reviews">Reviews</a></li>
-      <li><a href="/#contact">Contact</a></li>
     </ul>
     <div class="nav-r"><a class="btn btn-red" href="#afspraak">Plan je behandeling</a><button class="menu-btn" id="menuBtn" aria-label="Menu openen" aria-expanded="false" aria-controls="mnav"><span></span></button></div>
   </div>
@@ -269,33 +277,22 @@ footer a:hover{color:#fff}
     <li><a href="/#werkwijze">Hoe wij werken</a></li>
     <li><a href="/#reviews">Reviews</a></li>
     <li><a href="/#contact">Contact</a></li>
-  </ul></li>
-    <li><a href="/#werkwijze">Hoe wij werken</a></li>
-    <li><a href="/#reviews">Reviews</a></li>
-    <li><a href="/#contact">Contact</a></li>
   </ul>
   <div class="mnav-cta"><a class="btn btn-red" href="tel:+32474990977">Bel ons</a><a class="btn btn-ghost" href="https://wa.me/32474990977" target="_blank" rel="noopener">WhatsApp</a></div>
   <p>Stationsstraat 167, 9250 Waasmunster<br>Ma t/m vr 08:00–20:00<br>Za en zo 08:00–18:00 · op afspraak</p>
 </nav>
 
 <main>
-<section class="hero">
+<section class="hero full">
+  <figure class="hero-bg"><img src="/img/detailing/spoelen.jpg" alt="Grijze sportwagen wordt met hogedruk afgespoeld in een donkere detailingstudio" fetchpriority="high" style="object-position:62% 50%"></figure>
   <div class="wrap">
-    <div>
+    <div class="hero-txt">
       <p class="eyebrow">RKN Detailing</p>
       <h1>Weer als nieuw,<br><em>binnen en buiten.</em></h1>
       <p class="lede">Geef het interieur en exterieur van jouw wagen opnieuw een verzorgde uitstraling. Kies je behandeling en plan een moment dat jou past, ook in het weekend.</p>
-      <div class="hero-cta">
-        <a class="btn btn-red" href="#aanbod">Bekijk aanbod en prijzen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
-        <a class="btn btn-ghost" href="#afspraak">Plan je behandeling</a>
-      </div>
-      <div class="facts">
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg>Vaste prijzen</span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg>Elke dag op afspraak</span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg>In Waasmunster</span>
-      </div>
+      <div class="hero-cta"><a class="btn btn-red" href="#aanbod">Bekijk aanbod en prijzen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn-ghost" href="#afspraak">Plan je behandeling</a></div>
+      <div class="facts"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg>Vaste prijzen</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg>Elke dag op afspraak</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg>In Waasmunster</span></div>
     </div>
-    <div class="hero-shot"><img src="/img/detailing/spoelen.jpg" alt="Grijze sportwagen wordt met hogedruk afgespoeld in een donkere detailingstudio" fetchpriority="high" width="1800" height="1013"><span class="tag">Studio Waasmunster</span></div>
   </div>
 </section>
 
