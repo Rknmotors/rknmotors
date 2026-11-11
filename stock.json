@@ -1,6 +1,6 @@
 {
  "versie": 1,
- "bijgewerkt": "2026-11-05T15:37:58.770Z",
+ "bijgewerkt": "2026-11-11T12:11:38.533Z",
  "wagens": [
   {
    "id": "c1",
@@ -499,6 +499,29 @@
    ]
   },
   {
+   "id": "cmwc2tu0l",
+   "merk": "BMW ",
+   "model": "M340i ",
+   "type": "Berline",
+   "jaar": 2020,
+   "km": 150000,
+   "brandstof": "",
+   "bak": "Automaat",
+   "prijs": 29999,
+   "status": "binnenkort",
+   "len": 0.84,
+   "pluspunten": [
+    "12 maanden garantie",
+    "Onderhouden bij erkende dealer",
+    "Car-Pass beschikbaar",
+    "Niet-roker",
+    "Ongevalvrij"
+   ],
+   "info": [],
+   "uitrusting": [],
+   "fotos": []
+  },
+  {
    "id": "cmw3p38pt",
    "merk": "Ford ",
    "model": "Focus 1.0 eco boost Titanium",
@@ -508,7 +531,7 @@
    "brandstof": "",
    "bak": "",
    "prijs": null,
-   "status": "binnenkort",
+   "status": "verkocht",
    "len": 0.84,
    "pluspunten": [
     "12 maanden garantie",
@@ -531,7 +554,7 @@
    "brandstof": "Benzine",
    "bak": "Manueel",
    "prijs": null,
-   "status": "binnenkort",
+   "status": "verkocht",
    "len": 0.76,
    "pluspunten": [
     "12 maanden garantie",
