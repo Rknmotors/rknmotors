@@ -181,6 +181,21 @@ footer a:hover{color:#fff}
 @media (hover:none){.btn:hover{transform:none}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 </style>
+<script>
+/* Altijd bovenaan openen (tenzij er naar een onderdeel zoals #aanbod gelinkt wordt). */
+(function () {
+  try { if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; } catch (e) {}
+  var toTop = function () {
+    if (location.hash && location.hash.length > 1) return;
+    var h = document.documentElement, prev = h.style.scrollBehavior;
+    h.style.scrollBehavior = 'auto'; window.scrollTo(0, 0); h.style.scrollBehavior = prev;
+  };
+  toTop();
+  document.addEventListener('DOMContentLoaded', toTop);
+  window.addEventListener('load', toTop);
+  window.addEventListener('pageshow', toTop);
+})();
+</script>
 </head>
 <body>
 
