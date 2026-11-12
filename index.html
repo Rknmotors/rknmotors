@@ -1199,7 +1199,7 @@ let lenis=null;
 if(window.Lenis){lenis=window.__lenis=new Lenis({lerp:.075,wheelMultiplier:.9,touchMultiplier:1.3});
   lenis.on('scroll',()=>{ScrollTrigger.update();onScroll()});gsap.ticker.add(t=>lenis.raf(t*1000));gsap.ticker.lagSmoothing(0)}
 document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const id=a.getAttribute('href');const el=id.length>1&&document.querySelector(id);
-  if(!el&&id!=='#top')return;e.preventDefault();const y=id==='#top'?0:el;window.__navJump=true;clearTimeout(window.__navT);window.__navT=setTimeout(()=>window.__navJump=false,2200);lenis?lenis.scrollTo(y,{duration:1.6,offset:id==='#top'?0:-10,onComplete:()=>{clearTimeout(window.__navT);setTimeout(()=>window.__navJump=false,150)}}):(id==='#top'?scrollTo({top:0,behavior:'smooth'}):el.scrollIntoView({behavior:'smooth'}))}));
+  if(!el&&id!=='#top')return;e.preventDefault();const y=id==='#top'?0:el;window.__navJump=true;clearTimeout(window.__navT);window.__navT=setTimeout(()=>window.__navJump=false,2200);lenis?lenis.scrollTo(y,{immediate:true,offset:id==='#top'?0:-10,onComplete:()=>{clearTimeout(window.__navT);setTimeout(()=>window.__navJump=false,150)}}):(id==='#top'?scrollTo(0,0):el.scrollIntoView())}));
 const desk=matchMedia('(min-width:960px)').matches;
 
 /* HERO: het pand van RKN in de schemering; het logo op de gevel gaat aan en het beeld licht op; bij scrollen zoomt het in */
@@ -1744,4 +1744,9 @@ boot();
 })();
 </script>
 
+<script>
+(()=>{const h=location.hash;if(!h||h.length<2)return;try{history.scrollRestoration='manual'}catch(e){}
+const go=()=>{let el;try{el=document.querySelector(h)}catch(e){return}if(!el)return;const l=window.__lenis;l?l.scrollTo(el,{immediate:true,offset:-10,force:true}):el.scrollIntoView()};
+addEventListener('load',()=>{go();setTimeout(go,120);setTimeout(go,400)})})();
+</script>
 </body></html>
