@@ -478,5 +478,12 @@ footer a:hover{color:#fff}
   });
 })();
 </script>
+<script>
+/* grote titels passen altijd binnen hun kolom: te lange woorden worden kleiner gezet, nooit afgesneden */
+(()=>{const hs=()=>document.querySelectorAll('main h1, main h2');
+function fit(){hs().forEach(h=>{h.style.fontSize='';for(let i=0;i<4;i++){const w=h.clientWidth,s=h.scrollWidth;if(!w||s<=w+1)break;h.style.fontSize=(parseFloat(getComputedStyle(h).fontSize)*w/s*0.98)+'px'}})}
+let t;addEventListener('resize',()=>{clearTimeout(t);t=setTimeout(fit,80)});
+fit();addEventListener('load',fit);document.fonts&&document.fonts.ready.then(fit);})();
+</script>
 </body>
 </html>
