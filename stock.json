@@ -516,6 +516,23 @@
    "fotos": []
   },
   {
+   "id": "cmwdwy8qp",
+   "merk": "Opel",
+   "model": "Astra Cabrio",
+   "type": "Cabrio",
+   "jaar": 2010,
+   "km": 160000,
+   "brandstof": "Benzine",
+   "bak": "Manueel",
+   "prijs": 1000,
+   "status": "export",
+   "len": 0.86,
+   "pluspunten": [],
+   "info": [],
+   "uitrusting": [],
+   "fotos": []
+  },
+  {
    "id": "cmwc2tu0l",
    "merk": "BMW ",
    "model": "M340i ",
