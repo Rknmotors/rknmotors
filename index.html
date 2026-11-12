@@ -1496,17 +1496,16 @@ if(window.gsap&&!reduce){
   const copy=loop.cloneNode(true);copy.setAttribute('transform','translate(1440 0)');loop.appendChild(copy);
   gsap.set(pc,{xPercent:-190});
   let cruise=[];
-  const startCruise=()=>{park.classList.add('driving');
-    cruise=[gsap.fromTo(loop,{x:0},{x:-1440,duration:16,ease:'none',repeat:-1}),
-      gsap.fromTo('#parkDash',{backgroundPositionX:-640},{backgroundPositionX:-640-920,duration:2.6,ease:'none',repeat:-1}),
-      gsap.to(pim,{y:-1.6,duration:.18,repeat:-1,yoyo:true,ease:'sine.inOut'}),
-      gsap.fromTo(pc.querySelectorAll('.wind i'),{opacity:0,scaleX:.2,x:0},{opacity:.8,scaleX:1,x:-40,duration:.5,stagger:{each:.12,repeat:-1,yoyo:true},ease:'sine.inOut'})]};
-  ScrollTrigger.create({trigger:'.park',start:'top 92%',once:true,onEnter:()=>{
+  const startWorld=()=>{park.classList.add('driving');
+    cruise.push(gsap.fromTo(loop,{x:0},{x:-1440,duration:16,ease:'none',repeat:-1}),
+      gsap.fromTo('#parkDash',{backgroundPositionX:0},{backgroundPositionX:-920,duration:2.6,ease:'none',repeat:-1}))};
+  const startCruise=()=>{
+    cruise.push(gsap.to(pim,{y:-1.6,duration:.18,repeat:-1,yoyo:true,ease:'sine.inOut'}),
+      gsap.fromTo(pc.querySelectorAll('.wind i'),{opacity:0,scaleX:.2,x:0},{opacity:.8,scaleX:1,x:-40,duration:.5,stagger:{each:.12,repeat:-1,yoyo:true},ease:'sine.inOut'}))};
+  ScrollTrigger.create({trigger:'.park',start:'top 92%',once:true,onEnter:()=>{startWorld();
     gsap.timeline({onComplete:startCruise}).to(pc,{xPercent:0,duration:2,ease:'power2.out'}).to(pim,{y:-2,duration:.12,repeat:9,yoyo:true,ease:'sine.inOut'},0)
-      .fromTo(loop,{x:240},{x:0,duration:2,ease:'power2.out'},0)
       .to('#parkScene .bulb',{opacity:1,duration:.05,stagger:.08},1.2).to('#parkScene .bulb',{opacity:.4,duration:.06,stagger:.08},1.26).to('#parkScene .bulb',{opacity:1,duration:.1,stagger:.08},1.35)
       .to('#parkScene .beam',{opacity:1,duration:.5,stagger:.08},1.35)
-      .fromTo('#parkDash',{backgroundPositionX:0},{backgroundPositionX:-640,duration:2,ease:'power2.out'},0)
       .fromTo(pc.querySelectorAll('.wind i'),{opacity:0,scaleX:.2,x:0},{opacity:1,scaleX:1,x:-30,duration:.35,stagger:{each:.06,repeat:3,yoyo:true},ease:'power1.out'},0)}});
   // buiten beeld: even pauzeren (spaart de batterij op een gsm)
   ScrollTrigger.create({trigger:'.park',start:'top bottom',end:'bottom top',onToggle:st=>{cruise.forEach(t=>st.isActive?t.resume():t.pause());park.classList.toggle('paused',!st.isActive)}});
