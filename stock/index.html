@@ -186,6 +186,7 @@ a.opt:hover{border-color:var(--red);transform:translateY(-3px)}
 }
 @media (max-width:620px){.steps,.opts,.checks{grid-template-columns:1fr}}
 
+.scard.exp .spic::before{content:"EXPORT / HANDELAAR";position:absolute;left:50%;top:46%;translate:-50% -50%;rotate:-6deg;z-index:3;white-space:nowrap;font-family:var(--display);font-weight:900;font-stretch:118%;font-size:19px;letter-spacing:.05em;color:var(--red-l);border:2.5px solid var(--red-l);padding:.2em .55em;border-radius:6px;background:rgba(18,19,20,.6);pointer-events:none}
 .scard.soon .spic::before{content:"BINNENKORT";position:absolute;left:50%;top:46%;translate:-50% -50%;rotate:-6deg;z-index:3;font-family:var(--display);font-weight:900;font-stretch:118%;font-size:21px;letter-spacing:.06em;color:var(--red-l);border:2.5px solid var(--red-l);padding:.2em .55em;border-radius:6px;background:rgba(18,19,20,.55);pointer-events:none}
 .scard.soon .spic.none span{position:absolute;bottom:14px;left:0;right:0;text-align:center}
 /* extra pagina's */
@@ -414,7 +415,7 @@ function render(){
     const specs=[c.jaar,c.km?km(c.km):'',c.brandstof,c.bak].filter(Boolean).map(esc).join(' · ');
     const plus=(c.pluspunten||[]).slice(0,4).map(p=>`<li>${esc(p)}</li>`).join('');
     const msg=encodeURIComponent(`Hallo RKN Motors, ik heb interesse in de ${(c.merk+' '+c.model).replace(/\s+/g,' ').trim()}.`);
-    return `<article class="scard${c.status==='binnenkort'?' soon':''}">${pic}<div class="sinfo"><span class="stype">${esc(c.type||'')}</span><h3>${name}</h3><p class="sspecs">${specs}</p>${plus?`<ul class="splus">${plus}</ul>`:''}<div class="sfoot"><b>${c.prijs?eur(c.prijs):'Prijs op aanvraag'}</b><a class="btn btn-red" href="${WA}?text=${msg}" target="_blank" rel="noopener">Vraag info</a></div></div></article>`;
+    return `<article class="scard${c.status==='binnenkort'?' soon':''}${c.status==='export'?' exp':''}">${pic}<div class="sinfo"><span class="stype">${esc(c.type||'')}</span><h3>${name}</h3><p class="sspecs">${specs}</p>${plus?`<ul class="splus">${plus}</ul>`:''}<div class="sfoot"><b>${c.prijs?eur(c.prijs):'Prijs op aanvraag'}</b><a class="btn btn-red" href="${WA}?text=${msg}" target="_blank" rel="noopener">Vraag info</a></div></div></article>`;
   }).join('')||'<p class="snote">Op dit moment staan er geen wagens online. Stuur ons een bericht, er komen regelmatig nieuwe wagens binnen.</p>';
   document.getElementById('ssold').innerHTML=sold.length?`<h3 class="ssold-h">Onlangs verkocht</h3><ul class="ssold">${sold.map(c=>`<li>${esc((c.merk+' '+c.model).replace(/\s+/g,' ').trim())}</li>`).join('')}</ul>`:'';
   document.querySelectorAll('.spic[data-car]').forEach(b=>b.addEventListener('click',()=>openLb(live[+b.dataset.car])));
