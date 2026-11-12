@@ -505,7 +505,7 @@
    "type": "Berline",
    "jaar": 2020,
    "km": 150000,
-   "brandstof": "",
+   "brandstof": "Benzine",
    "bak": "Automaat",
    "prijs": 29999,
    "status": "binnenkort",
