@@ -499,6 +499,23 @@
    ]
   },
   {
+   "id": "cmwdwwa0a",
+   "merk": "Mercedes-Benz",
+   "model": "A 170",
+   "type": "Hatchback",
+   "jaar": 2009,
+   "km": null,
+   "brandstof": "Benzine",
+   "bak": "Manueel",
+   "prijs": 750,
+   "status": "export",
+   "len": 0.8,
+   "pluspunten": [],
+   "info": [],
+   "uitrusting": [],
+   "fotos": []
+  },
+  {
    "id": "cmwc2tu0l",
    "merk": "BMW ",
    "model": "M340i ",
